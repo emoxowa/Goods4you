@@ -35,7 +35,7 @@ export const Navigation = React.memo(({ type, cartItemCount = 0 }: Props): JSX.E
             </Link>
           </li>
         )}
-        {type === 'header' && <li>Johnson Smith</li>}
+        {type === 'header' && <li className={styles.link}>Johnson Smith</li>}
       </ul>
     </nav>
   )

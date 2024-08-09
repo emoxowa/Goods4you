@@ -1,0 +1,56 @@
+.main {
+  grid-area: 'content';
+  width: 100vw;
+}
+
+.aboutSection {
+  background-color: $secondary-color;
+}
+
+.wrapper {
+  max-width: 1440px;
+  padding: 115px 130px 177px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.divider {
+  width: 100%;
+  max-width: 1180px;
+  border-top: 1px solid $border-color;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+}
+
+.h1 {
+  position: absolute;
+  top: 5px;
+  left: 175px;
+  font-weight: 700;
+  line-height: 1;
+  font-size: 200px;
+  color: rgba(255, 255, 255, 0.12);
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.h2 {
+  font-size: $fs-xxxl;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.4;
+  max-width: 570px;
+  color: $secondary-text-color;
+}
+
+.description {
+  font-size: $fs-s;
+  margin: 30px 0;
+  line-height: 1.5;
+  max-width: 350px;
+  font-weight: 600;
+  color: $secondary-text-color;
+}

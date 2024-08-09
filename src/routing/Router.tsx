@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import { RouterPaths } from './routerPaths'
 import { Layout } from 'src/layout'
+import { CatalogPage } from 'src/pages/CatalogPage'
 
 function ErrorBoundary() {
   return <></>
@@ -13,7 +14,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: RouterPaths.MAIN,
-        element: <div>main</div>,
+        element: <CatalogPage />,
         errorElement: <ErrorBoundary />,
       },
       {
