@@ -1,0 +1,22 @@
+.layout {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 90px auto 90px;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 48px;
+  max-width: 100vw;
+  background-color: $primary-bg-color;
+  grid-template-areas:
+    'header'
+    'content'
+    'menu';
+}
+
+.main {
+  grid-area: 'content';
+  width: 1440px;
+  padding: 0 130px;
+  margin: 0 auto;
+}

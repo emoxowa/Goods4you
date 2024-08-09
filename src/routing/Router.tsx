@@ -1,6 +1,6 @@
-import { createBrowserRouter, Link } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 import { RouterPaths } from './routerPaths'
-import { Layout } from '../layout/Layout'
+import { Layout } from 'src/layout'
 
 function ErrorBoundary() {
   return <></>
