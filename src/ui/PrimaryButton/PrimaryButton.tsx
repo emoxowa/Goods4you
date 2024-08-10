@@ -1,14 +1,14 @@
 import styles from './PrimaryButton.module.scss'
 
 type Props = {
-  text: string
+  children: React.ReactNode
   onClick: () => void
 }
 
-export const PrimaryButton = ({ text, onClick }: Props): JSX.Element => {
+export const PrimaryButton = ({ children, onClick }: Props): JSX.Element => {
   return (
     <button className={styles.primaryButton} onClick={onClick}>
-      {text}
+      {children}
     </button>
   )
 }

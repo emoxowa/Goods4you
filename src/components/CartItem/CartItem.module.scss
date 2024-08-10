@@ -1,0 +1,66 @@
+.cartItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: $primary-bg-color;
+  width: 100%;
+
+  .image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+  .details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .title {
+    font-size: $fs-s;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.25;
+    text-align: left;
+    color: $primary-text-color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .price {
+    font-size: $fs-s;
+    color: $primary-text-color;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 1;
+    margin-left: auto;
+    min-width: 188px;
+    justify-content: flex-end;
+  }
+
+  .quantity {
+    font-size: $fs-xs;
+    color: $primary-text-color;
+    white-space: nowrap;
+  }
+}

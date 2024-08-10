@@ -1,0 +1,21 @@
+.squareButton {
+  width: 50px;
+  height: 50px;
+  background-color: $primary-color;
+  color: $secondary-text-color;
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $primary-hover-color;
+  }
+
+  &:disabled {
+    background-color: $primary-disabled-color; 
+  }
+}
