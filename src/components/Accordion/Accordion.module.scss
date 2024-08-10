@@ -35,9 +35,6 @@
   border: none;
   text-align: left;
   padding: 25px 0;
-  &::after {
-    transition: transform 0.5s;
-  }
 }
 
 .icon {

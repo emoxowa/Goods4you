@@ -1,7 +1,10 @@
 import styles from './AboutSection.module.scss'
 import { LinkButton } from 'src/ui/LinkButton'
+import { useNavigationAndScroll } from 'src/hooks'
 
 export const AboutSection = (): JSX.Element => {
+  const { scrollToSection } = useNavigationAndScroll()
+
   return (
     <section className={styles.about}>
       <div className={styles.wrapper}>
@@ -14,7 +17,11 @@ export const AboutSection = (): JSX.Element => {
           We sell smartphones, laptops, clothes, shoes and many other products
           at low prices
         </p>
-        <LinkButton text="Go to shopping" to="/#catalog" />
+        <LinkButton
+          text="Go to shopping"
+          to="/#catalog"
+          onClick={() => scrollToSection('catalog')}
+        />
       </div>
     </section>
   )

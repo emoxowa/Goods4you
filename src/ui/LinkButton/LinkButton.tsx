@@ -4,11 +4,12 @@ import styles from './LinkButton.module.scss'
 type LinkButtonProps = {
   text: string
   to: string
+  onClick?: () => void
 }
 
-export const LinkButton = ({ text, to }: LinkButtonProps): JSX.Element => {
+export const LinkButton = ({ text, to, onClick }: LinkButtonProps): JSX.Element => {
   return (
-    <Link to={to} className={styles.linkButton}>
+    <Link to={to} className={styles.linkButton} onClick={onClick}>
       {text}
     </Link>
   )

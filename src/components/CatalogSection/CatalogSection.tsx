@@ -17,7 +17,7 @@ export const CatalogSection = (): JSX.Element => {
   }
 
   return (
-    <section className={styles.catalog} id-="catalog">
+    <section className={styles.catalog} id="catalog">
       <div className={styles.wrapper}>
         <h2 className={styles.h2}>Catalog</h2>
 
