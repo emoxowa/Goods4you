@@ -21,7 +21,7 @@ export const CatalogSection = (): JSX.Element => {
       <div className={styles.wrapper}>
         <h2 className={styles.h2}>Catalog</h2>
 
-        <form action="" className={styles.search}>
+        <form className={styles.search}>
           <label htmlFor="search-input"></label>
           <input
             id="search-input"

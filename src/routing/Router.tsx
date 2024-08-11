@@ -6,10 +6,6 @@ import { CartPage } from 'src/pages/CartPage'
 import { ProductPage } from 'src/pages/ProductPage'
 import { NotFoundPage } from 'src/pages/NotFoundPage'
 
-function ErrorBoundary() {
-  return <></>
-}
-
 export const router = createBrowserRouter([
   {
     path: RouterPaths.MAIN,
@@ -18,17 +14,17 @@ export const router = createBrowserRouter([
       {
         path: RouterPaths.MAIN,
         element: <CatalogPage />,
-        errorElement: <ErrorBoundary />,
+        errorElement: <></>,
       },
       {
         path: RouterPaths.PRODUCT,
         element: <ProductPage />,
-        errorElement: <ErrorBoundary />,
+        errorElement: <></>,
       },
       {
         path: RouterPaths.CART,
         element: <CartPage />,
-        errorElement: <ErrorBoundary />,
+        errorElement: <></>,
       },
     ],
   },

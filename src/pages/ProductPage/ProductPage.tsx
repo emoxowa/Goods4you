@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async'
 import styles from './ProductPage.module.scss'
 import { product } from 'src/assets/data/product'
 import { PriceInfo } from 'src/components/PriceInfo'
@@ -10,8 +11,16 @@ export const ProductPage = (): JSX.Element => {
 
   return (
     <div className={styles.container}>
+      <Helmet>
+        <title>{product.title} | Goods4you</title>
+        <meta
+          name="description"
+          content="Any products from famous brands with worldwide delivery"
+        />
+      </Helmet>
       <section>
-        <ProductGallery images={product.images}/>
+        <h2 className={styles.hidden}>Product Gallery</h2>
+        <ProductGallery images={product.images} />
       </section>
 
       <section className={styles.productDescription}>

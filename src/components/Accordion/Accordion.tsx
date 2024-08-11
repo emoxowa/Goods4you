@@ -17,7 +17,12 @@ export const Accordion = ({ items }: Props): JSX.Element => {
         <details key={index} className={styles.details}>
           <summary className={styles.summary}>
             <span className={styles.title}>{item.title}</span>
-            <img src={plus} aria-hidden="true" className={styles.icon} />
+            <img
+              src={plus}
+              aria-hidden="true"
+              className={styles.icon}
+              alt="Expand or collapse section"
+            />
           </summary>
           <div className={styles.content}>
             <p>{item.content}</p>

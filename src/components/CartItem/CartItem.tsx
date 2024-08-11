@@ -2,7 +2,6 @@ import { ButtonAddToCart } from 'src/components/ButtonAddToCart'
 import styles from './CartItem.module.scss'
 import { QuantityControls } from 'src/components/QuantityControls'
 import { Link } from 'react-router-dom'
-import { RouterPaths } from 'src/routing/routerPaths'
 
 type Props = {
   id: number
@@ -31,7 +30,7 @@ export const CartItem = ({
         <img src={imageUrl} alt={title} className={styles.image} />
 
         <div className={styles.wrapper}>
-          <Link to={`${RouterPaths.PRODUCT}${id}`}>
+          <Link to={`/product/${id}`}>
             <h3 className={styles.title}>{title}</h3>
           </Link>
           <p className={styles.price}>${price}</p>

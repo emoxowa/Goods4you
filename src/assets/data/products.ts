@@ -23,7 +23,7 @@ export const products = [
   {
     id: 4,
     title: 'Apple iPhone 13',
-    price: 999_999_999_999_999_999,
+    price: 999,
     imageUrl: 'src/assets/data/image.png',
     quantity: 200,
   },
