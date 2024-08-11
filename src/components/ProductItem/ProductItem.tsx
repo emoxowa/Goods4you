@@ -56,7 +56,7 @@ export const ProductItem = ({
             onClick={(e) => {
               e.stopPropagation()
               onAdd(id)
-            }}
+              }}
           />
         )}
       </div>
