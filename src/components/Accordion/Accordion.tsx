@@ -1,5 +1,5 @@
 import styles from './Accordion.module.scss'
-import plus from 'src/assets/images/svg/plus.svg'
+import plus from 'src/assets/images/svg/accordion-icon.svg'
 
 type AccordionItem = {
   title: string

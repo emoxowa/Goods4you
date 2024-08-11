@@ -12,3 +12,8 @@
     'content'
     'menu';
 }
+
+.main {
+  grid-area: 'content';
+  width: 100vw;
+}

@@ -1,5 +1,5 @@
-import { CartItem } from 'src/components/CartItem'
-import styles from './CartList.module.scss'
+import styles from './ProductList.module.scss'
+import { ProductItem } from 'src/components/ProductItem'
 
 type Props = {
   items: {
@@ -11,14 +11,13 @@ type Props = {
   }[]
   onAdd: (id: number) => void
   onRemove: (id: number) => void
-  onDelete: (id: number) => void
 }
 
-export const CartList = ({ items, onAdd, onRemove, onDelete }: Props): JSX.Element => {
+export const ProductList = ({ items, onAdd, onRemove }: Props): JSX.Element => {
   return (
-    <div className={styles.cartList}>
+    <div className={styles.productList}>
       {items.map((item) => (
-        <CartItem
+        <ProductItem
           key={item.id}
           id={item.id}
           title={item.title}
@@ -27,7 +26,6 @@ export const CartList = ({ items, onAdd, onRemove, onDelete }: Props): JSX.Eleme
           quantity={item.quantity}
           onAdd={onAdd}
           onRemove={onRemove}
-          onDelete={onDelete}
         />
       ))}
     </div>

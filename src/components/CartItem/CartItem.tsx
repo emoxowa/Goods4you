@@ -1,6 +1,8 @@
-import { SquareButton } from 'src/ui/SquareButton'
-import styles from './CartItem.module.scss'
 import { ButtonAddToCart } from 'src/components/ButtonAddToCart'
+import styles from './CartItem.module.scss'
+import { QuantityControls } from 'src/components/QuantityControls'
+import { Link } from 'react-router-dom'
+import { RouterPaths } from 'src/routing/routerPaths'
 
 type Props = {
   id: number
@@ -10,6 +12,7 @@ type Props = {
   quantity: number
   onAdd: (id: number) => void
   onRemove: (id: number) => void
+  onDelete: (id: number) => void
 }
 
 export const CartItem = ({
@@ -20,65 +23,43 @@ export const CartItem = ({
   quantity,
   onAdd,
   onRemove,
+  onDelete,
 }: Props): JSX.Element => {
-  const handleCardClick = (e: React.MouseEvent) => {
-    if (
-      !(
-        e.target instanceof HTMLButtonElement ||
-        e.target instanceof HTMLImageElement
-      )
-    ) {
-      window.location.href = `/product/${id}`
-    }
-  }
-
   return (
-    <div className={styles.cartItem} onClick={handleCardClick}>
-      <div className={styles.imageWrapper}>
+    <div className={styles.cartItem}>
+      <div className={`${styles.details} ${!quantity ? styles.faded : ''}`}>
         <img src={imageUrl} alt={title} className={styles.image} />
-      </div>
 
-      <div className={styles.details}>
         <div className={styles.wrapper}>
-          <h3 className={styles.title}>{title}</h3>
+          <Link to={`${RouterPaths.PRODUCT}${id}`}>
+            <h3 className={styles.title}>{title}</h3>
+          </Link>
           <p className={styles.price}>${price}</p>
         </div>
-
-        {quantity > 0 ? (
-          <div className={styles.controls}>
-            <SquareButton
-              onClick={(e) => {
-                e.stopPropagation()
-                onRemove(id)
-              }}
-              className={styles.button}
-            >
-              <p className={styles.buttonText}>-</p>
-            </SquareButton>
-
-            <span className={styles.quantity}>
-              {quantity} {quantity === 1 ? 'item' : 'items'}
-            </span>
-
-            <SquareButton
-              onClick={(e) => {
-                e.stopPropagation()
-                onAdd(id)
-              }}
-              className={styles.button}
-            >
-              <p className={styles.buttonText}>+</p>
-            </SquareButton>
-          </div>
-        ) : (
-          <ButtonAddToCart
-            onClick={(e) => {
-              e.stopPropagation()
-              onAdd(id)
-            }}
-          />
-        )}
       </div>
+
+      {quantity > 0 ? (
+        <div className={styles.controls}>
+          <QuantityControls
+            id={id}
+            quantity={quantity}
+            onAdd={onAdd}
+            onRemove={onRemove}
+          />
+
+          <button onClick={() => onDelete(id)} className={styles.deleteButton}>
+            Delete
+          </button>
+        </div>
+      ) : (
+        <ButtonAddToCart
+          className={styles.addToCartButton}
+          onClick={(e) => {
+            e.stopPropagation()
+            onAdd(id)
+          }}
+        />
+      )}
     </div>
   )
 }

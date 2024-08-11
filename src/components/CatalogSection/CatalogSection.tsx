@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import styles from './CatalogSection.module.scss'
-import { CartList } from 'src/components/CartList'
+import { ProductList } from 'src/components/ProductList'
 import { PrimaryButton } from 'src/ui/PrimaryButton'
-import { products } from 'src/assets/data/data.ts'
+import { products } from 'src/assets/data/products'
 
 export const CatalogSection = (): JSX.Element => {
   const [visibleItems, setVisibleItems] = useState(12)
@@ -32,7 +32,7 @@ export const CatalogSection = (): JSX.Element => {
           />
         </form>
 
-        <CartList
+        <ProductList
           items={visibleProducts}
           onAdd={handleAddToCart}
           onRemove={handleRemoveFromCart}

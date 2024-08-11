@@ -1,0 +1,17 @@
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 1;
+  margin-left: auto;
+  min-width: 188px;
+  justify-content: flex-end;
+}
+
+.quantity {
+  font-size: $fs-xs;
+  color: $primary-text-color;
+  white-space: nowrap;
+  width: 48px;
+  text-align: center;
+}

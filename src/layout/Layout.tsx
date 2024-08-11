@@ -8,7 +8,9 @@ export const Layout = (): JSX.Element => {
   return (
     <div className={styles.layout}>
       <Header />
-      <Outlet />
+      <main className={styles.main}>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   )

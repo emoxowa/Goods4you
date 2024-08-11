@@ -1,0 +1,29 @@
+.container {
+  max-width: 1440px;
+  padding: 48px 130px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.h1 {
+  font-size: $fs-xxxl;
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: left;
+  color: $primary-text-color;
+  margin: 0;
+}
+
+.cartContent {
+  display: grid;
+  grid-template-columns: 1fr minmax(300px, 356px);
+  gap: 48px;
+}
+
+.cartList {
+  padding: 20px 40px;
+  border: 1px solid $secondary-hover-text-color;
+  border-radius: 4px;
+}

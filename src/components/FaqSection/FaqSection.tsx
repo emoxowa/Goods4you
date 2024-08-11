@@ -24,6 +24,7 @@ export const FaqSection = (): JSX.Element => {
     <section className={styles.faq} id="faq">
       <div className={styles.wrapper}>
         <h2 className={styles.h2}>FAQ</h2>
+
         <Accordion items={faqItems} />
       </div>
     </section>
