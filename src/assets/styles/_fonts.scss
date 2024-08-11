@@ -1,8 +1,8 @@
 @font-face {
   font-family: "Jost";
-  src: url("../fonts/Jost/Jost-ExtraBold.woff2") format("woff2"),
-    url("../fonts/Jost/Jost-ExtraBold.woff") format("woff"),
-    url("../fonts/Jost/Jost-ExtraBold.ttf") format('truetype');
+  src: url("src/assets/fonts/Jost/Jost-ExtraBold.woff2") format("woff2"),
+    url("src/assets/fonts/Jost/Jost-ExtraBold.woff") format("woff"),
+    url("src/assets/fonts/Jost/Jost-ExtraBold.ttf") format('truetype');
   font-weight: 800;
   font-style: normal;
   unicode-range: U+0020-007F, U+20A0-20CF;
@@ -11,9 +11,9 @@
 
 @font-face {
   font-family: "Jost";
-  src: url("../fonts/Jost/Jost-Bold.woff2") format("woff2"),
-    url("../fonts/Jost/Jost-Bold.woff") format("woff"),
-    url("../fonts/Jost/Jost-Bold.ttf") format('truetype');
+  src: url("src/assets/fonts/Jost/Jost-Bold.woff2") format("woff2"),
+    url("src/assets/fonts/Jost/Jost-Bold.woff") format("woff"),
+    url("src/assets/fonts/Jost/Jost-Bold.ttf") format('truetype');
   font-weight: 700;
   font-style: normal;
   unicode-range: U+0020-007F, U+20A0-20CF;
@@ -22,9 +22,9 @@
 
 @font-face {
   font-family: "Jost";
-  src: url("../fonts/Jost/Jost-SemiBold.woff2") format("woff2"),
-    url("../fonts/Jost/Jost-SemiBold.woff") format("woff"),
-    url("../fonts/Jost/Jost-SemiBold.ttf") format('truetype');
+  src: url("src/assets/fonts/Jost/Jost-SemiBold.woff2") format("woff2"),
+    url("src/assets/fonts/Jost/Jost-SemiBold.woff") format("woff"),
+    url("src/assets/fonts/Jost/Jost-SemiBold.ttf") format('truetype');
   font-weight: 600;
   font-style: normal;
   unicode-range: U+0020-007F, U+20A0-20CF;
@@ -33,9 +33,9 @@
 
 @font-face {
   font-family: "Jost";
-  src: url("../fonts/Jost/Jost-Medium.woff2") format("woff2"),
-    url("../fonts/Jost/Jost-Medium.woff") format("woff"),
-    url("../fonts/Jost/Jost-Medium.ttf") format('truetype');
+  src: url("src/assets/fonts/Jost/Jost-Medium.woff2") format("woff2"),
+    url("src/assets/fonts/Jost/Jost-Medium.woff") format("woff"),
+    url("src/assets/fonts/Jost/Jost-Medium.ttf") format('truetype');
   font-weight: 500;
   font-style: normal;
   unicode-range: U+0020-007F, U+20A0-20CF;
@@ -44,9 +44,9 @@
 
 @font-face {
   font-family: "Jost";
-  src: url("../fonts/Jost/Jost-Regular.woff2") format("woff2"),
-    url("../fonts/Jost/Jost-Regular.woff") format("woff"),
-    url("../fonts/Jost/Jost-Regular.ttf") format('truetype');
+  src: url("src/assets/fonts/Jost/Jost-Regular.woff2") format("woff2"),
+    url("src/assets/fonts/Jost/Jost-Regular.woff") format("woff"),
+    url("src/assets/fonts/Jost/Jost-Regular.ttf") format('truetype');
   font-weight: 400;
   font-style: normal;
   unicode-range: U+0020-007F, U+20A0-20CF;
