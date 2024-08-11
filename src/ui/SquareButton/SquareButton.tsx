@@ -1,18 +1,17 @@
+import { ButtonHTMLAttributes, ReactNode } from 'react'
 import styles from './SquareButton.module.scss'
 
-type Props = {
-  onClick: () => void
-  children: React.ReactNode
-  className?: string
+export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode
 }
 
 export const SquareButton = ({
-  onClick,
   children,
   className,
+  ...props
 }: Props): JSX.Element => {
   return (
-    <button className={`${styles.squareButton} ${className}`} onClick={onClick}>
+    <button className={`${styles.squareButton} ${className}`} {...props}>
       {children}
     </button>
   )

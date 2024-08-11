@@ -1,17 +1,13 @@
 import { SquareButton } from 'src/ui/SquareButton'
 import cart from 'src/assets/images/svg/cart.svg'
+import { ButtonHTMLAttributes } from 'react'
 
-type Props = {
-  onClick: () => void
-  className?: string
-}
+export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export const ButtonAddToCart = ({ onClick, className }: Props): JSX.Element => {
+
+export const ButtonAddToCart = ({ className, ...props }: Props): JSX.Element => {
   return (
-    <SquareButton
-      onClick={onClick}
-      className={className}
-    >
+    <SquareButton className={className} {...props}>
       <img src={cart} alt="Add to cart" />
     </SquareButton>
   )

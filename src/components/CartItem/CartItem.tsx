@@ -21,10 +21,23 @@ export const CartItem = ({
   onAdd,
   onRemove,
 }: Props): JSX.Element => {
+  const handleCardClick = (e: React.MouseEvent) => {
+    if (
+      !(
+        e.target instanceof HTMLButtonElement ||
+        e.target instanceof HTMLImageElement
+      )
+    ) {
+      window.location.href = `/product/${id}`
+    }
+  }
+
   return (
-    <div className={styles.cartItem}>
-      <img src={imageUrl} alt={title} className={styles.image} />
-      
+    <div className={styles.cartItem} onClick={handleCardClick}>
+      <div className={styles.imageWrapper}>
+        <img src={imageUrl} alt={title} className={styles.image} />
+      </div>
+
       <div className={styles.details}>
         <div className={styles.wrapper}>
           <h3 className={styles.title}>{title}</h3>
@@ -34,7 +47,10 @@ export const CartItem = ({
         {quantity > 0 ? (
           <div className={styles.controls}>
             <SquareButton
-              onClick={() => onRemove(id)}
+              onClick={(e) => {
+                e.stopPropagation()
+                onRemove(id)
+              }}
               className={styles.button}
             >
               <p className={styles.buttonText}>-</p>
@@ -44,12 +60,23 @@ export const CartItem = ({
               {quantity} {quantity === 1 ? 'item' : 'items'}
             </span>
 
-            <SquareButton onClick={() => onAdd(id)} className={styles.button}>
+            <SquareButton
+              onClick={(e) => {
+                e.stopPropagation()
+                onAdd(id)
+              }}
+              className={styles.button}
+            >
               <p className={styles.buttonText}>+</p>
             </SquareButton>
           </div>
         ) : (
-          <ButtonAddToCart onClick={() => onAdd(id)} />
+          <ButtonAddToCart
+            onClick={(e) => {
+              e.stopPropagation()
+              onAdd(id)
+            }}
+          />
         )}
       </div>
     </div>
