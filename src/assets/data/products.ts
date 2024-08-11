@@ -18,7 +18,7 @@ export const products = [
     title: 'Adidas Ultraboost',
     price: 180,
     imageUrl: 'src/assets/data/image.png',
-    quantity: 1500000,
+    quantity: 15,
   },
   {
     id: 4,

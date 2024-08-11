@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import styles from './ProductList.module.scss'
 import { ProductItem } from 'src/components/ProductItem'
 
@@ -13,9 +14,9 @@ type Props = {
   onRemove: (id: number) => void
 }
 
-export const ProductList = ({ items, onAdd, onRemove }: Props): JSX.Element => {
+export const ProductList = memo(({ items, onAdd, onRemove }: Props): JSX.Element => {
   return (
-    <div className={styles.productList}>
+    <div className={styles.productList} role="list">
       {items.map((item) => (
         <ProductItem
           key={item.id}
@@ -30,4 +31,4 @@ export const ProductList = ({ items, onAdd, onRemove }: Props): JSX.Element => {
       ))}
     </div>
   )
-}
+})

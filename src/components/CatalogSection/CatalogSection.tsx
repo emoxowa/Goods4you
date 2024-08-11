@@ -9,7 +9,8 @@ export const CatalogSection = (): JSX.Element => {
 
   const visibleProducts = products.slice(0, visibleItems)
 
-  const handleAddToCart = () => {}
+  const handleAddToCart = () => { }
+  
   const handleRemoveFromCart = () => {}
 
   const handleShowMore = () => {
@@ -39,7 +40,7 @@ export const CatalogSection = (): JSX.Element => {
         />
 
         {visibleItems < products.length && (
-          <PrimaryButton onClick={handleShowMore}>Show more</PrimaryButton>
+          <PrimaryButton onClick={handleShowMore} aria-label="Show more products">Show more</PrimaryButton >
         )}
       </div>
     </section>

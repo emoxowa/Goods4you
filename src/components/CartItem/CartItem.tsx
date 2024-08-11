@@ -2,6 +2,7 @@ import { ButtonAddToCart } from 'src/components/ButtonAddToCart'
 import styles from './CartItem.module.scss'
 import { QuantityControls } from 'src/components/QuantityControls'
 import { Link } from 'react-router-dom'
+import { memo } from 'react'
 
 type Props = {
   id: number
@@ -14,7 +15,7 @@ type Props = {
   onDelete: (id: number) => void
 }
 
-export const CartItem = ({
+export const CartItem = memo(({
   id,
   title,
   price,
@@ -44,9 +45,13 @@ export const CartItem = ({
             quantity={quantity}
             onAdd={onAdd}
             onRemove={onRemove}
+            aria-label={`Change quantity of ${title}`}
           />
 
-          <button onClick={() => onDelete(id)} className={styles.deleteButton}>
+          <button
+            onClick={() => onDelete(id)}
+            className={styles.deleteButton}
+            aria-label={`Delete ${title} from cart`}>
             Delete
           </button>
         </div>
@@ -57,8 +62,9 @@ export const CartItem = ({
             e.stopPropagation()
             onAdd(id)
           }}
+          aria-label={`Add ${title} to cart`}
         />
       )}
     </div>
   )
-}
+})

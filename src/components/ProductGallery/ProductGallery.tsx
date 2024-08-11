@@ -17,7 +17,7 @@ export const ProductGallery = ({ images }: Props): JSX.Element => {
       <div className={styles.mainImageContainer}>
         <img
           src={selectedImage}
-          alt="Selected image"
+          alt="Selected product image" 
           className={styles.mainImage}
         />
       </div>
@@ -29,6 +29,7 @@ export const ProductGallery = ({ images }: Props): JSX.Element => {
             alt={`Image ${index + 1}`}
             className={`${styles.thumbnail} ${selectedImage === image ? styles.activeThumbnail : ''}`}
             onClick={() => handleImageClick(image)}
+            role="button"
           />
         ))}
       </div>

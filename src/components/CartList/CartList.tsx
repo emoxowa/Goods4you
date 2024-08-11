@@ -1,5 +1,6 @@
 import { CartItem } from 'src/components/CartItem'
 import styles from './CartList.module.scss'
+import { memo } from 'react'
 
 type Props = {
   items: {
@@ -14,9 +15,9 @@ type Props = {
   onDelete: (id: number) => void
 }
 
-export const CartList = ({ items, onAdd, onRemove, onDelete }: Props): JSX.Element => {
+export const CartList = memo(({ items, onAdd, onRemove, onDelete }: Props): JSX.Element => {
   return (
-    <div className={styles.cartList}>
+    <div className={styles.cartList} aria-label="Shopping Cart Items">
       {items.map((item) => (
         <CartItem
           key={item.id}
@@ -32,4 +33,4 @@ export const CartList = ({ items, onAdd, onRemove, onDelete }: Props): JSX.Eleme
       ))}
     </div>
   )
-}
+})

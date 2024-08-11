@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import styles from './CartSummary.module.scss'
 
 type Props = {
@@ -6,9 +7,9 @@ type Props = {
   totalPrice: number
 }
 
-export const CartSummary = ({ count, price, totalPrice }: Props): JSX.Element => {
+export const CartSummary = memo(({ count, price, totalPrice }: Props): JSX.Element => {
   return (
-    <>
+    <div aria-labelledby="cart-summary">
       <div className={styles.row}>
         <h3 className={styles.label}>Total count</h3>
         <span className={styles.count}>
@@ -27,6 +28,6 @@ export const CartSummary = ({ count, price, totalPrice }: Props): JSX.Element =>
         <h5 className={styles.label}>Total price</h5>
         <span className={styles.totalPrice}>${totalPrice}</span>
       </div>
-    </>
+    </div>
   )
-}
+})

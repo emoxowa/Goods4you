@@ -1,13 +1,14 @@
 import styles from './Rating.module.scss'
 import filledStarIcon from 'src/assets/images/svg/filledStar.svg'
 import emptyStarIcon from 'src/assets/images/svg/emptyStar.svg'
+import { memo } from 'react'
 
 type Props = {
   rating: number
   maxRating?: number
 }
 
-export const Rating = ({ rating, maxRating = 5 }: Props): JSX.Element => {
+export const Rating = memo(({ rating, maxRating = 5 }: Props): JSX.Element => {
   const fullStars = Math.floor(rating)
 
   const stars = new Array(maxRating).fill(null)
@@ -35,3 +36,4 @@ export const Rating = ({ rating, maxRating = 5 }: Props): JSX.Element => {
     </div>
   )
 }
+)

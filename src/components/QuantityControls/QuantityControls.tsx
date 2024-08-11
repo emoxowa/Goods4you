@@ -4,6 +4,7 @@ import minusSmall from 'src/assets/images/svg/minusSmall.svg'
 import minus from 'src/assets/images/svg/minus.svg'
 import plusSmall from 'src/assets/images/svg/plusSmall.svg'
 import plus from 'src/assets/images/svg/plus.svg'
+import { memo } from 'react'
 
 type Props = {
   id: number
@@ -13,7 +14,7 @@ type Props = {
   onRemove: (id: number) => void
 }
 
-export const QuantityControls = ({
+export const QuantityControls = memo(({
   id,
   quantity,
   size = 'small',
@@ -29,6 +30,7 @@ export const QuantityControls = ({
         }}
         className={styles.button}
         size={size}
+        aria-label="Decrease quantity"
       >
         <img
           src={size === 'small' ? minusSmall : minus}
@@ -47,12 +49,14 @@ export const QuantityControls = ({
         }}
         className={styles.button}
         size={size}
+        aria-label="Increase quantity"
       >
         <img
           src={size === 'small' ? plusSmall : plus}
-          alt="Decrease quantity"
+          alt="Increase quantity"
         />
       </SquareButton>
     </div>
   )
 }
+)

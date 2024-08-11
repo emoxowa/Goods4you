@@ -8,7 +8,7 @@ export const AboutSection = (): JSX.Element => {
   return (
     <section className={styles.about}>
       <div className={styles.wrapper}>
-        <hr className={styles.divider} />
+        <hr className={styles.divider} aria-label="Section divider"/>
 
         <h1 className={styles.h1}>Goods4you</h1>
 

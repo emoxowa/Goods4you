@@ -15,7 +15,7 @@ export const Accordion = ({ items }: Props): JSX.Element => {
     <div className={styles.container}>
       {items.map((item, index) => (
         <details key={index} className={styles.details}>
-          <summary className={styles.summary}>
+          <summary className={styles.summary} aria-expanded="false" aria-controls={`content-${index}`}>
             <span className={styles.title}>{item.title}</span>
             <img
               src={plus}
