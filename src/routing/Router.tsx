@@ -4,6 +4,7 @@ import { Layout } from 'src/layout'
 import { CatalogPage } from 'src/pages/CatalogPage'
 import { CartPage } from 'src/pages/CartPage'
 import { ProductPage } from 'src/pages/ProductPage'
+import { NotFoundPage } from 'src/pages/NotFoundPage'
 
 function ErrorBoundary() {
   return <></>
@@ -34,14 +35,10 @@ export const router = createBrowserRouter([
 
   {
     path: RouterPaths.ERROR_404,
-    element: <div>404</div>,
-  },
-  {
-    path: RouterPaths.ERROR_500,
-    element: <div>500</div>,
+    element: <NotFoundPage />,
   },
   {
     path: '*',
-    element: <div>404</div>,
+    element: <NotFoundPage />,
   },
 ])
