@@ -1,14 +1,26 @@
 .footer {
   grid-area: 'footer';
   background-color: $secondary-bg-color;
+}
 
+.wrapper {
+  max-width: 1440px;
+  height: 100%;
+  padding: 0 130px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@include respond-to-lg-max {
   .wrapper {
-    max-width: 1440px;
-    height: 100%;
-    padding: 0 130px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 0 30px;
+  }
+}
+
+@include respond-to-s-max {
+  .wrapper {
+    padding: 0 10px;
   }
 }

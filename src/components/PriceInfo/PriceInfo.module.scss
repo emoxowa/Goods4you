@@ -1,0 +1,62 @@
+.wrapper {
+  display: grid;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(0, 0, 0, 0.04);
+  padding: 12px;
+  border-radius: 4px;
+  grid-template-columns: auto 176px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.priceWrapper {
+  padding: 0 24px 0 20px;
+  border-right: 1px solid $border-color;
+}
+
+.discountTotal {
+  font-size: $fs-xxxl;
+  font-weight: 600;
+  line-height: 1.11;
+  text-align: left;
+  color: $primary-text-color;
+  margin: 0;
+}
+
+.price {
+  font-size: $fs-s;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: left;
+  color: $gray-text-color;
+  margin: 2px 0 0;
+  text-decoration: line-through;
+}
+
+.discount {
+  font-size: $fs-s;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  color: $primary-text-color;
+  margin-left: 24px;
+
+  span {
+    font-size: $fs-s;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: left;
+    margin: 0;
+    margin-left: 6px;
+  }
+}
+
+@include respond-to-sm-max {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}

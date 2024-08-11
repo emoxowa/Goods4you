@@ -3,6 +3,7 @@ import { RouterPaths } from './routerPaths'
 import { Layout } from 'src/layout'
 import { CatalogPage } from 'src/pages/CatalogPage'
 import { CartPage } from 'src/pages/CartPage'
+import { ProductPage } from 'src/pages/ProductPage'
 
 function ErrorBoundary() {
   return <></>
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
       },
       {
         path: RouterPaths.PRODUCT,
-        element: <div>product</div>,
+        element: <ProductPage />,
         errorElement: <ErrorBoundary />,
       },
       {

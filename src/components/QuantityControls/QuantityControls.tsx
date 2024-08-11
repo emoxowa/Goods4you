@@ -1,11 +1,14 @@
 import { SquareButton } from 'src/ui/SquareButton'
 import styles from './QuantityControls.module.scss'
-import minus from 'src/assets/images/svg/minusSmall.svg'
-import plus from 'src/assets/images/svg/plusSmall.svg'
+import minusSmall from 'src/assets/images/svg/minusSmall.svg'
+import minus from 'src/assets/images/svg/minus.svg'
+import plusSmall from 'src/assets/images/svg/plusSmall.svg'
+import plus from 'src/assets/images/svg/plus.svg'
 
 type Props = {
   id: number
   quantity: number
+  size?: 'small' | 'medium'
   onAdd: (id: number) => void
   onRemove: (id: number) => void
 }
@@ -13,6 +16,7 @@ type Props = {
 export const QuantityControls = ({
   id,
   quantity,
+  size = 'small',
   onAdd,
   onRemove,
 }: Props): JSX.Element => {
@@ -24,8 +28,12 @@ export const QuantityControls = ({
           onRemove(id)
         }}
         className={styles.button}
+        size={size}
       >
-        <img src={minus} alt="Decrease quantity" />
+        <img
+          src={size === 'small' ? minusSmall : minus}
+          alt="Decrease quantity"
+        />
       </SquareButton>
 
       <span className={styles.quantity}>
@@ -38,8 +46,12 @@ export const QuantityControls = ({
           onAdd(id)
         }}
         className={styles.button}
+        size={size}
       >
-        <img src={plus} alt="Decrease quantity" />
+        <img
+          src={size === 'small' ? plusSmall : plus}
+          alt="Decrease quantity"
+        />
       </SquareButton>
     </div>
   )

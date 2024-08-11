@@ -9,6 +9,7 @@
   cursor: pointer;
   text-align: center;
   transition: background-color 0.3s ease;
+  line-height: 1.375;
 
   &:hover {
     background-color: $primary-hover-color;
@@ -16,5 +17,6 @@
 
   &:disabled {
     background-color: $primary-disabled-color;
+    cursor: default;
   }
 }

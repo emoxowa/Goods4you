@@ -1,13 +1,19 @@
+import { ButtonHTMLAttributes, ReactNode } from 'react'
 import styles from './PrimaryButton.module.scss'
 
-type Props = {
-  children: React.ReactNode
-  onClick: () => void
+export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode
+  className?: string
 }
 
-export const PrimaryButton = ({ children, onClick }: Props): JSX.Element => {
+export const PrimaryButton = ({
+  children,
+  className,
+  ...props
+
+}: Props): JSX.Element => {
   return (
-    <button className={styles.primaryButton} onClick={onClick}>
+    <button className={`${styles.primaryButton} ${className}`} {...props}>
       {children}
     </button>
   )

@@ -1,0 +1,98 @@
+.container {
+  max-width: 1440px;
+  padding: 48px 130px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(300px, 520px) 1fr;
+  gap: 40px;
+}
+
+.title {
+  margin: 0;
+  font-size: $fs-xxxl;
+  font-weight: 600;
+  line-height: 1.55;
+  text-align: left;
+  color: $primary-text-color;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+.tags {
+  font-size: $fs-s;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: right;
+  color: $gray-text-color;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.availability {
+  font-size: $fs-m;
+  font-weight: 500;
+  line-height: 1.33;
+  text-align: left;
+  color: $primary-color;
+  margin-top: 24px;
+  border-top: 1px solid $secondary-hover-text-color;
+  border-bottom: 1px solid $secondary-hover-text-color;
+  padding: 12px 0;
+}
+
+.description {
+  font-size: $fs-m;
+  font-weight: 400;
+  line-height: 1.66;
+  text-align: left;
+  color: $primary-text-color;
+  margin: 24px 0;
+}
+
+.warranty {
+  font-size: $fs-s;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  color: $gray-text-color;
+  margin: 0 0 12px;
+}
+
+.shipping {
+  font-size: $fs-s;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  color: $gray-text-color;
+  margin: 0 0 24px;
+}
+
+@include respond-to-lg-max {
+  .container {
+    padding: 48px 30px;
+    justify-content: center;
+    grid-template-columns: minmax(300px, 420px) 1fr;
+  }
+}
+
+@include respond-to-md-max {
+  .container {
+    justify-content: center;
+    grid-template-columns: minmax(300px, 1fr);
+  }
+}
+
+@include respond-to-s-max {
+  .container {
+    padding: 20px 10px;
+  }
+}

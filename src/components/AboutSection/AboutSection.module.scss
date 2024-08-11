@@ -21,7 +21,7 @@
 
 .h1 {
   position: absolute;
-  top: 5px;
+  top: 40px;
   left: 175px;
   font-weight: 700;
   line-height: 1;
@@ -48,4 +48,60 @@
   max-width: 350px;
   font-weight: 600;
   color: $secondary-text-color;
+}
+
+@include respond-to-lg-max {
+  .wrapper {
+    padding: 115px 30px 177px;
+  }
+
+  .divider {
+    width: calc(100% - 60px);
+  }
+
+  .h1 {
+    font-size: 150px;
+    top: 110px;
+    left: 100px;
+  }
+}
+
+@include respond-to-md-max {
+  .wrapper {
+    padding: 50px 30px 120px;
+  }
+
+  .h1 {
+    font-size: 100px;
+    top: 120px;
+    left: 160px;
+  }
+}
+
+@include respond-to-sm-max {
+  .wrapper {
+    padding: 50px 30px 120px;
+  }
+
+  .h1 {
+    font-size: 50px;
+    top: 150px;
+    left: 100px;
+  }
+}
+
+@include respond-to-s-max {
+  .wrapper {
+    padding: 50px 10px 120px;
+  }
+
+  .divider {
+    width: calc(100% - 20px);
+  }
+
+  .h1 {
+    font-size: 40px;
+    top: 170px;
+    left: 50px;
+  }
 }

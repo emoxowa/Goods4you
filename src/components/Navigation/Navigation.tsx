@@ -11,7 +11,6 @@ type Props = {
 
 export const Navigation = React.memo(
   ({ type, cartItemCount = 0 }: Props): JSX.Element => {
-    console.log('Rendering Navigation component')
     const { handleNavigation } = useNavigationAndScroll()
 
     return (

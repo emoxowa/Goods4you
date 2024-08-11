@@ -4,9 +4,9 @@ import { cartItems } from 'src/assets/data/cartItems'
 import { CartSummary } from 'src/components/CartSummary'
 import { calculateTotalPrice } from 'src/utils/calculateTotalPrice'
 export const CartPage = (): JSX.Element => {
-  const handleAdd = (id: number): void => {}
-  const handleRemove = (id: number): void => {}
-  const handleDelete = (id: number): void => { }
+  const handleAdd = (): void => {}
+  const handleRemove = (): void => {}
+  const handleDelete = (): void => { }
   
   const totalPrice = calculateTotalPrice(700, 15);
 
@@ -24,7 +24,7 @@ export const CartPage = (): JSX.Element => {
           />
         </section>
 
-        <section className={styles.summary}>
+        <section>
           <CartSummary count={3} price={700} totalPrice={totalPrice} />
         </section>
       </div>

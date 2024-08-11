@@ -4,7 +4,6 @@ import { Navigation } from 'src/components/Navigation'
 import { useNavigationAndScroll } from 'src/hooks'
 
 export const Footer = (): JSX.Element => {
-  console.log('Rendering Footer component')
   const { scrollToTop } = useNavigationAndScroll()
 
   return (
