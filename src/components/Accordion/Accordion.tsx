@@ -1,5 +1,6 @@
-import styles from './Accordion.module.scss'
-import plus from 'src/assets/images/svg/accordion-icon.svg'
+import plus from "src/assets/images/svg/accordion-icon.svg"
+
+import styles from "./Accordion.module.scss"
 
 type AccordionItem = {
   title: string
@@ -15,7 +16,11 @@ export const Accordion = ({ items }: Props): JSX.Element => {
     <div className={styles.container}>
       {items.map((item, index) => (
         <details key={index} className={styles.details}>
-          <summary className={styles.summary} aria-expanded="false" aria-controls={`content-${index}`}>
+          <summary
+            className={styles.summary}
+            aria-expanded="false"
+            aria-controls={`content-${index}`}
+          >
             <span className={styles.title}>{item.title}</span>
             <img
               src={plus}

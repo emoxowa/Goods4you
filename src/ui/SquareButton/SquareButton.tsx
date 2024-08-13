@@ -1,16 +1,17 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react'
-import styles from './SquareButton.module.scss'
+import { ButtonHTMLAttributes, ReactNode } from "react"
+
+import styles from "./SquareButton.module.scss"
 
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
   className: string
-  size?: 'small' | 'medium'
+  size?: "small" | "medium"
 }
 
 export const SquareButton = ({
   children,
   className,
-  size = 'small',
+  size = "small",
   ...props
 }: Props): JSX.Element => {
   return (

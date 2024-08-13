@@ -1,6 +1,7 @@
-import styles from './ProductItem.module.scss'
-import { ButtonAddToCart } from 'src/components/ButtonAddToCart'
-import { QuantityControls } from 'src/components/QuantityControls'
+import { ButtonAddToCart } from "src/components/ButtonAddToCart"
+import { QuantityControls } from "src/components/QuantityControls"
+
+import styles from "./ProductItem.module.scss"
 
 type Props = {
   id: number
@@ -56,7 +57,7 @@ export const ProductItem = ({
             onClick={(e) => {
               e.stopPropagation()
               onAdd(id)
-              }}
+            }}
           />
         )}
       </div>

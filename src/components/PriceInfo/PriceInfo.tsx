@@ -1,6 +1,7 @@
-import { PrimaryButton } from 'src/ui/PrimaryButton'
-import styles from './PriceInfo.module.scss'
-import { QuantityControls } from '../QuantityControls'
+import { PrimaryButton } from "src/ui/PrimaryButton"
+
+import { QuantityControls } from "../QuantityControls"
+import styles from "./PriceInfo.module.scss"
 
 type Props = {
   price: number

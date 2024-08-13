@@ -1,11 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styles from './Navigation.module.scss'
-import { RouterPaths } from 'src/routing/routerPaths'
-import icon from 'src/assets/images/svg/cart.svg'
-import { useNavigationAndScroll } from 'src/hooks'
+import React from "react"
+import { Link } from "react-router-dom"
+import icon from "src/assets/images/svg/cart.svg"
+import { useNavigationAndScroll } from "src/hooks"
+import { RouterPaths } from "src/routing/routerPaths"
+
+import styles from "./Navigation.module.scss"
 type Props = {
-  type: 'header' | 'footer'
+  type: "header" | "footer"
   cartItemCount?: number
 }
 
@@ -20,7 +21,7 @@ export const Navigation = React.memo(
             <Link
               to="/#catalog"
               className={styles.navLink}
-              onClick={() => handleNavigation('catalog')}
+              onClick={() => handleNavigation("catalog")}
             >
               Catalog
             </Link>
@@ -29,12 +30,12 @@ export const Navigation = React.memo(
             <Link
               to="/#faq"
               className={styles.navLink}
-              onClick={() => handleNavigation('faq')}
+              onClick={() => handleNavigation("faq")}
             >
               FAQ
             </Link>
           </li>
-          {type === 'header' && (
+          {type === "header" && (
             <li>
               <Link to={RouterPaths.CART} className={styles.navLink}>
                 <span>Cart</span>
@@ -45,9 +46,11 @@ export const Navigation = React.memo(
               </Link>
             </li>
           )}
-          {type === 'header' && <li className={styles.link}>Johnson Smith</li>}
+          {type === "header" && <li className={styles.link}>Johnson Smith</li>}
         </ul>
       </nav>
     )
   },
 )
+
+Navigation.displayName = 'Navigation'

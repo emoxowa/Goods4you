@@ -1,7 +1,8 @@
-import styles from './Rating.module.scss'
-import filledStarIcon from 'src/assets/images/svg/filledStar.svg'
-import emptyStarIcon from 'src/assets/images/svg/emptyStar.svg'
-import { memo } from 'react'
+import { memo } from "react"
+import emptyStarIcon from "src/assets/images/svg/emptyStar.svg"
+import filledStarIcon from "src/assets/images/svg/filledStar.svg"
+
+import styles from "./Rating.module.scss"
 
 type Props = {
   rating: number
@@ -35,5 +36,6 @@ export const Rating = memo(({ rating, maxRating = 5 }: Props): JSX.Element => {
       })}
     </div>
   )
-}
-)
+})
+
+Rating.displayName = "Rating"

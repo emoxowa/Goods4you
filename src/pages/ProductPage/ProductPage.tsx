@@ -1,9 +1,10 @@
-import { Helmet } from 'react-helmet-async'
-import styles from './ProductPage.module.scss'
-import { product } from 'src/assets/data/product'
-import { PriceInfo } from 'src/components/PriceInfo'
-import { ProductGallery } from 'src/components/ProductGallery'
-import { Rating } from 'src/components/Rating'
+import { Helmet } from "react-helmet-async"
+import { product } from "src/assets/data/product"
+import { PriceInfo } from "src/components/PriceInfo"
+import { ProductGallery } from "src/components/ProductGallery"
+import { Rating } from "src/components/Rating"
+
+import styles from "./ProductPage.module.scss"
 
 export const ProductPage = (): JSX.Element => {
   const handleAdd = (): void => {}
@@ -28,7 +29,7 @@ export const ProductPage = (): JSX.Element => {
 
         <div className={styles.wrapper}>
           <Rating rating={product.rating} />
-          <div className={styles.tags}>{product.tags.join(', ')}</div>
+          <div className={styles.tags}>{product.tags.join(", ")}</div>
         </div>
 
         <div className={styles.availability}>{product.availabilityStatus}</div>

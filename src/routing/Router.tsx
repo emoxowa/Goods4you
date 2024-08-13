@@ -1,10 +1,11 @@
-import { createBrowserRouter } from 'react-router-dom'
-import { RouterPaths } from './routerPaths'
-import { Layout } from 'src/layout'
-import { CatalogPage } from 'src/pages/CatalogPage'
-import { CartPage } from 'src/pages/CartPage'
-import { ProductPage } from 'src/pages/ProductPage'
-import { NotFoundPage } from 'src/pages/NotFoundPage'
+import { createBrowserRouter } from "react-router-dom"
+import { Layout } from "src/layout"
+import { CartPage } from "src/pages/CartPage"
+import { CatalogPage } from "src/pages/CatalogPage"
+import { NotFoundPage } from "src/pages/NotFoundPage"
+import { ProductPage } from "src/pages/ProductPage"
+
+import { RouterPaths } from "./routerPaths"
 
 export const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ export const router = createBrowserRouter([
     element: <NotFoundPage />,
   },
   {
-    path: '*',
+    path: "*",
     element: <NotFoundPage />,
   },
 ])

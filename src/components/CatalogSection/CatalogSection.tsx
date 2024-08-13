@@ -1,16 +1,17 @@
-import { useState } from 'react'
-import styles from './CatalogSection.module.scss'
-import { ProductList } from 'src/components/ProductList'
-import { PrimaryButton } from 'src/ui/PrimaryButton'
-import { products } from 'src/assets/data/products'
+import { useState } from "react"
+import { products } from "src/assets/data/products"
+import { ProductList } from "src/components/ProductList"
+import { PrimaryButton } from "src/ui/PrimaryButton"
+
+import styles from "./CatalogSection.module.scss"
 
 export const CatalogSection = (): JSX.Element => {
   const [visibleItems, setVisibleItems] = useState(12)
 
   const visibleProducts = products.slice(0, visibleItems)
 
-  const handleAddToCart = () => { }
-  
+  const handleAddToCart = () => {}
+
   const handleRemoveFromCart = () => {}
 
   const handleShowMore = () => {
@@ -40,7 +41,12 @@ export const CatalogSection = (): JSX.Element => {
         />
 
         {visibleItems < products.length && (
-          <PrimaryButton onClick={handleShowMore} aria-label="Show more products">Show more</PrimaryButton >
+          <PrimaryButton
+            onClick={handleShowMore}
+            aria-label="Show more products"
+          >
+            Show more
+          </PrimaryButton>
         )}
       </div>
     </section>

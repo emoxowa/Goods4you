@@ -1,7 +1,8 @@
-import styles from './Footer.module.scss'
-import { Logo } from 'src/ui/Logo'
-import { Navigation } from 'src/components/Navigation'
-import { useNavigationAndScroll } from 'src/hooks'
+import { Navigation } from "src/components/Navigation"
+import { useNavigationAndScroll } from "src/hooks"
+import { Logo } from "src/ui/Logo"
+
+import styles from "./Footer.module.scss"
 
 export const Footer = (): JSX.Element => {
   const { scrollToTop } = useNavigationAndScroll()

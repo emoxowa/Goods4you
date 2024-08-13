@@ -1,6 +1,7 @@
-import { Navigation } from 'src/components/Navigation'
-import styles from './Header.module.scss'
-import { Logo } from 'src/ui/Logo'
+import { Navigation } from "src/components/Navigation"
+import { Logo } from "src/ui/Logo"
+
+import styles from "./Header.module.scss"
 
 export const Header = (): JSX.Element => {
   return (

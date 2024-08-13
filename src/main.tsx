@@ -1,11 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.scss'
-import { router } from './routing/Router.tsx'
-import { RouterProvider } from 'react-router-dom'
-import { HelmetProvider } from 'react-helmet-async'
+import "./index.scss"
 
-createRoot(document.getElementById('root')!).render(
+import { StrictMode } from "react"
+import { createRoot } from "react-dom/client"
+import { HelmetProvider } from "react-helmet-async"
+import { RouterProvider } from "react-router-dom"
+
+import { router } from "./routing/Router.tsx"
+
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <HelmetProvider>
       <RouterProvider router={router} />

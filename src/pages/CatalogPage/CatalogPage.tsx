@@ -1,7 +1,7 @@
-import { AboutSection } from 'src/components/AboutSection'
-import { CatalogSection } from 'src/components/CatalogSection'
-import { FaqSection } from 'src/components/FaqSection'
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from "react-helmet-async"
+import { AboutSection } from "src/components/AboutSection"
+import { CatalogSection } from "src/components/CatalogSection"
+import { FaqSection } from "src/components/FaqSection"
 
 export const CatalogPage = (): JSX.Element => {
   return (

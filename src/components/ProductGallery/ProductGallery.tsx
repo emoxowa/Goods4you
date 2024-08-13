@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import styles from './ProductGallery.module.scss'
+import { useState } from "react"
+
+import styles from "./ProductGallery.module.scss"
 
 type Props = {
   images: string[]
@@ -17,7 +18,7 @@ export const ProductGallery = ({ images }: Props): JSX.Element => {
       <div className={styles.mainImageContainer}>
         <img
           src={selectedImage}
-          alt="Selected product image" 
+          alt="Selected product image"
           className={styles.mainImage}
         />
       </div>
@@ -27,7 +28,7 @@ export const ProductGallery = ({ images }: Props): JSX.Element => {
             key={index}
             src={image}
             alt={`Image ${index + 1}`}
-            className={`${styles.thumbnail} ${selectedImage === image ? styles.activeThumbnail : ''}`}
+            className={`${styles.thumbnail} ${selectedImage === image ? styles.activeThumbnail : ""}`}
             onClick={() => handleImageClick(image)}
             role="button"
           />
