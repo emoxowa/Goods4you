@@ -1,16 +1,22 @@
+import { useEffect } from "react"
 import { Helmet } from "react-helmet-async"
-import { calculateTotalPrice } from "src/app/utils/calculateTotalPrice"
-import { cartItems } from "src/assets/data/cartItems"
+import { useAppDispatch, useAppSelector } from "src/app/store"
+import { cartSelector, fetchCartByUserId } from "src/app/store/slices"
 import { CartList } from "src/components/CartList"
 import { CartSummary } from "src/components/CartSummary"
 
 import styles from "./CartPage.module.scss"
 export const CartPage = (): JSX.Element => {
+  const dispatch = useAppDispatch()
+  const cart = useAppSelector(cartSelector)
+
+  useEffect(() => {
+    dispatch(fetchCartByUserId(6))
+  }, [dispatch])
+
   const handleAdd = (): void => {}
   const handleRemove = (): void => {}
   const handleDelete = (): void => {}
-
-  const totalPrice = calculateTotalPrice(700, 15)
 
   return (
     <>
@@ -27,7 +33,7 @@ export const CartPage = (): JSX.Element => {
         <div className={styles.cartContent}>
           <section className={styles.cartList}>
             <CartList
-              items={cartItems}
+              products={cart.response?.products ?? []}
               onAdd={handleAdd}
               onRemove={handleRemove}
               onDelete={handleDelete}
@@ -35,7 +41,11 @@ export const CartPage = (): JSX.Element => {
           </section>
 
           <section>
-            <CartSummary count={3} price={700} totalPrice={totalPrice} />
+            <CartSummary
+              count={cart.response?.totalProducts ?? 0}
+              price={cart.response?.total ?? 0}
+              totalPrice={cart.response?.discountedTotal ?? 0}
+            />
           </section>
         </div>
       </div>
