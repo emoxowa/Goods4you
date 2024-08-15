@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes } from "react"
 import cart from "src/assets/images/svg/cart.svg"
-import { SquareButton } from "src/ui/SquareButton"
+import { Button } from 'src/ui/Button'
 
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
@@ -11,8 +11,8 @@ export const ButtonAddToCart = ({
   ...props
 }: Props): JSX.Element => {
   return (
-    <SquareButton className={className} {...props}>
+    <Button className={className} {...props} variant='square' size='small'>
       <img src={cart} alt="Add to cart" />
-    </SquareButton>
+    </Button>
   )
 }

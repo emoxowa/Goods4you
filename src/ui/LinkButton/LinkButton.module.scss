@@ -13,6 +13,7 @@
   display: inline-block;
   z-index: 2;
   position: absolute;
+  font-family: "Jost", sans-serif;
 
   &:hover {
     background-color: $primary-hover-color;

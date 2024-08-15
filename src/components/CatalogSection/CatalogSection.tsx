@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { products } from "src/assets/data/products"
 import { ProductList } from "src/components/ProductList"
-import { PrimaryButton } from "src/ui/PrimaryButton"
+import { Button } from "src/ui/Button"
+import { Input } from "src/ui/Input"
 
 import styles from "./CatalogSection.module.scss"
 
@@ -25,7 +26,8 @@ export const CatalogSection = (): JSX.Element => {
 
         <form className={styles.search}>
           <label htmlFor="search-input"></label>
-          <input
+          
+          <Input
             id="search-input"
             type="text"
             placeholder="Search by title"
@@ -41,12 +43,9 @@ export const CatalogSection = (): JSX.Element => {
         />
 
         {visibleItems < products.length && (
-          <PrimaryButton
-            onClick={handleShowMore}
-            aria-label="Show more products"
-          >
+          <Button onClick={handleShowMore} aria-label="Show more products">
             Show more
-          </PrimaryButton>
+          </Button>
         )}
       </div>
     </section>

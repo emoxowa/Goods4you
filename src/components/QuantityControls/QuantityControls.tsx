@@ -3,7 +3,7 @@ import minus from "src/assets/images/svg/minus.svg"
 import minusSmall from "src/assets/images/svg/minusSmall.svg"
 import plus from "src/assets/images/svg/plus.svg"
 import plusSmall from "src/assets/images/svg/plusSmall.svg"
-import { SquareButton } from "src/ui/SquareButton"
+import { Button } from "src/ui/Button"
 
 import styles from "./QuantityControls.module.scss"
 
@@ -19,7 +19,7 @@ export const QuantityControls = memo(
   ({ id, quantity, size = "small", onAdd, onRemove }: Props): JSX.Element => {
     return (
       <div className={styles.controls}>
-        <SquareButton
+        <Button
           onClick={(e) => {
             e.stopPropagation()
             onRemove(id)
@@ -27,18 +27,19 @@ export const QuantityControls = memo(
           className={styles.button}
           size={size}
           aria-label="Decrease quantity"
+          variant="square"
         >
           <img
             src={size === "small" ? minusSmall : minus}
             alt="Decrease quantity"
           />
-        </SquareButton>
+        </Button>
 
         <span className={styles.quantity}>
           {quantity} {quantity === 1 ? "item" : "items"}
         </span>
 
-        <SquareButton
+        <Button
           onClick={(e) => {
             e.stopPropagation()
             onAdd(id)
@@ -46,12 +47,13 @@ export const QuantityControls = memo(
           className={styles.button}
           size={size}
           aria-label="Increase quantity"
+          variant="square"
         >
           <img
             src={size === "small" ? plusSmall : plus}
             alt="Increase quantity"
           />
-        </SquareButton>
+        </Button>
       </div>
     )
   },

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { RouterPaths } from "src/routing/routerPaths"
 
 import styles from "./Logo.module.scss"
 
@@ -7,7 +8,7 @@ type Props = {
 }
 export const Logo = ({ onClick }: Props): JSX.Element => {
   return (
-    <Link to="/" className={styles.logo} onClick={onClick}>
+    <Link to={RouterPaths.MAIN} className={styles.logo} onClick={onClick}>
       Goods4you
     </Link>
   )

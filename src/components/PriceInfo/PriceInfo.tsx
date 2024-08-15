@@ -1,4 +1,4 @@
-import { PrimaryButton } from "src/ui/PrimaryButton"
+import { Button } from "src/ui/Button"
 
 import { QuantityControls } from "../QuantityControls"
 import styles from "./PriceInfo.module.scss"
@@ -41,7 +41,7 @@ export const PriceInfo = ({
           size="medium"
         />
       ) : (
-        <PrimaryButton onClick={onAdd}>Add to cart</PrimaryButton>
+        <Button onClick={onAdd}>Add to cart</Button>
       )}
     </div>
   )
