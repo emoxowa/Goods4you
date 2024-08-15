@@ -1,4 +1,4 @@
-import { useNavigationAndScroll } from "src/hooks"
+import { useNavigationAndScroll } from "src/app/hooks"
 import { LinkButton } from "src/ui/LinkButton"
 
 import styles from "./AboutSection.module.scss"

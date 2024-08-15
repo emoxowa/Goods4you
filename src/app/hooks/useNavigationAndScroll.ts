@@ -1,6 +1,6 @@
-import { useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { RouterPaths } from 'src/routing/routerPaths'
+import { useCallback } from "react"
+import { useNavigate } from "react-router-dom"
+import { RouterPaths } from "src/app/routing/routerPaths"
 
 export const useNavigationAndScroll = () => {
   const navigate = useNavigate()
@@ -8,14 +8,14 @@ export const useNavigationAndScroll = () => {
   const scrollToSection = useCallback((sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" })
     } else {
       console.warn(`Element with id '${sectionId}' not found.`)
     }
   }, [])
 
   const scrollToTop = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: "smooth" })
   }, [])
 
   const handleNavigation = useCallback(

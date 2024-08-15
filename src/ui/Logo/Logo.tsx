@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { RouterPaths } from "src/routing/routerPaths"
+import { RouterPaths } from "src/app/routing/routerPaths"
 
 import styles from "./Logo.module.scss"
 

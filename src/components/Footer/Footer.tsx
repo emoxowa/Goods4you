@@ -1,5 +1,5 @@
+import { useNavigationAndScroll } from "src/app/hooks"
 import { Navigation } from "src/components/Navigation"
-import { useNavigationAndScroll } from "src/hooks"
 import { Logo } from "src/ui/Logo"
 
 import styles from "./Footer.module.scss"

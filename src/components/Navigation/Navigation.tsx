@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { useNavigationAndScroll } from "src/app/hooks"
+import { RouterPaths } from "src/app/routing/routerPaths"
 import icon from "src/assets/images/svg/cart.svg"
-import { useNavigationAndScroll } from "src/hooks"
-import { RouterPaths } from "src/routing/routerPaths"
 
 import styles from "./Navigation.module.scss"
 type Props = {
@@ -53,4 +53,4 @@ export const Navigation = React.memo(
   },
 )
 
-Navigation.displayName = 'Navigation'
+Navigation.displayName = "Navigation"

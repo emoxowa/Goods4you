@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async"
+import { calculateTotalPrice } from "src/app/utils/calculateTotalPrice"
 import { cartItems } from "src/assets/data/cartItems"
 import { CartList } from "src/components/CartList"
 import { CartSummary } from "src/components/CartSummary"
-import { calculateTotalPrice } from "src/utils/calculateTotalPrice"
 
 import styles from "./CartPage.module.scss"
 export const CartPage = (): JSX.Element => {

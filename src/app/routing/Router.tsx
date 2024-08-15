@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom"
-import { Layout } from "src/layout"
+import { Layout } from "src/components/layout"
 import { CartPage } from "src/pages/CartPage"
 import { CatalogPage } from "src/pages/CatalogPage"
 import { NotFoundPage } from "src/pages/NotFoundPage"
