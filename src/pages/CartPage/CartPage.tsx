@@ -14,6 +14,14 @@ export const CartPage = (): JSX.Element => {
     dispatch(fetchCartByUserId(6))
   }, [dispatch])
 
+  if (cart.status === "error") {
+    return <p>Error</p>
+  }
+
+  if (cart.status === "loading") {
+    return <p>loading</p>
+  }
+
   const handleAdd = (): void => {}
   const handleRemove = (): void => {}
   const handleDelete = (): void => {}

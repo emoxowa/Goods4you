@@ -19,12 +19,23 @@ const cartSlice = createSlice({
   initialState: InitialState as StateFromApi<Cart>,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchCartByUserId.fulfilled, (state, action) => {
-      state.status = "fulfilled"
-      state.response = action.payload
-    })
+    builder
+      .addCase(fetchCartByUserId.pending, (state) => {
+        state.status = "loading"
+        state.response = undefined
+      })
+      .addCase(fetchCartByUserId.fulfilled, (state, action) => {
+        state.status = "fulfilled"
+        state.response = action.payload
+      })
+      .addCase(fetchCartByUserId.rejected, (state) => {
+        state.status = "error"
+        state.response = undefined
+      })
   },
 })
 
 export const cart = cartSlice.reducer
 export const cartSelector = (state: RootState) => state.cart
+export const totalQuantitySelector = (state: RootState) =>
+  state.cart.response?.totalQuantity ?? 0

@@ -7,11 +7,11 @@ import icon from "src/assets/images/svg/cart.svg"
 import styles from "./Navigation.module.scss"
 type Props = {
   type: "header" | "footer"
-  cartItemCount?: number
+  totalQuantity?: number
 }
 
 export const Navigation = React.memo(
-  ({ type, cartItemCount = 0 }: Props): JSX.Element => {
+  ({ type, totalQuantity = 0 }: Props): JSX.Element => {
     const { handleNavigation } = useNavigationAndScroll()
 
     return (
@@ -40,8 +40,8 @@ export const Navigation = React.memo(
               <Link to={RouterPaths.CART} className={styles.navLink}>
                 <span>Cart</span>
                 <img src={icon} alt="Cart icon" className={styles.icon} />
-                {cartItemCount > 0 && (
-                  <span className={styles.cartItemCount}>{cartItemCount}</span>
+                {totalQuantity > 0 && (
+                  <span className={styles.totalQuantity}>{totalQuantity}</span>
                 )}
               </Link>
             </li>

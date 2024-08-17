@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async"
-import { product } from "src/assets/data/product"
+import { useParams } from "react-router-dom"
+import { useGetProductByIdQuery } from "src/app/store/api"
+import { getAvailabilityText } from "src/app/utils/getAvailabilityText"
 import { PriceInfo } from "src/components/PriceInfo"
 import { ProductGallery } from "src/components/ProductGallery"
 import { Rating } from "src/components/Rating"
@@ -7,8 +9,18 @@ import { Rating } from "src/components/Rating"
 import styles from "./ProductPage.module.scss"
 
 export const ProductPage = (): JSX.Element => {
+  const { id } = useParams<{ id: string }>()
+  const { data: product, error, isLoading } = useGetProductByIdQuery(Number(id))
   const handleAdd = (): void => {}
   const handleRemove = (): void => {}
+
+  if (isLoading) {
+    return <p>Loading...</p>
+  }
+
+  if (error || !product) {
+    return <p>Error loading product details.</p>
+  }
 
   return (
     <div className={styles.container}>
@@ -21,7 +33,7 @@ export const ProductPage = (): JSX.Element => {
       </Helmet>
       <section>
         <h2 className={styles.hidden}>Product Gallery</h2>
-        <ProductGallery images={product.images} />
+        <ProductGallery images={product.images} thumbnail={product.thumbnail} />
       </section>
 
       <section className={styles.productDescription}>
@@ -32,7 +44,9 @@ export const ProductPage = (): JSX.Element => {
           <div className={styles.tags}>{product.tags.join(", ")}</div>
         </div>
 
-        <div className={styles.availability}>{product.availabilityStatus}</div>
+        <div className={styles.availability}>
+          {getAvailabilityText(product.stock, product.availabilityStatus)}
+        </div>
 
         <p className={styles.description}>{product.description}</p>
 
@@ -41,9 +55,9 @@ export const ProductPage = (): JSX.Element => {
         <p className={styles.shipping}>{product.shippingInformation}</p>
 
         <PriceInfo
+          id={product.id}
           price={product.price}
           discountPercentage={product.discountPercentage}
-          discountTotal={product.discountTotal}
           onAdd={handleAdd}
           onRemove={handleRemove}
           quantity={0}
