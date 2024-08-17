@@ -38,4 +38,4 @@ const cartSlice = createSlice({
 export const cart = cartSlice.reducer
 export const cartSelector = (state: RootState) => state.cart
 export const totalQuantitySelector = (state: RootState) =>
-  state.cart.response?.totalQuantity ?? 0
+  state.cart.response?.products.length ?? 0

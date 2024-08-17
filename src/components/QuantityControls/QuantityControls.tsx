@@ -18,7 +18,9 @@ type Props = {
 export const QuantityControls = memo(
   ({ id, quantity, size = "small", onAdd, onRemove }: Props): JSX.Element => {
     return (
-      <div className={styles.controls}>
+      <div
+        className={`${styles.controls} ${size === "small" ? styles.small : styles.medium}`}
+      >
         <Button
           onClick={(e) => {
             e.stopPropagation()
@@ -35,7 +37,9 @@ export const QuantityControls = memo(
           />
         </Button>
 
-        <span className={styles.quantity}>
+        <span
+          className={`${styles.quantity} ${size === "small" ? styles.small : styles.medium}`}
+        >
           {quantity} {quantity === 1 ? "item" : "items"}
         </span>
 

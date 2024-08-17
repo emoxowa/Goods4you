@@ -1,19 +1,32 @@
 .controls {
   display: flex;
   align-items: center;
-  gap: 20px;
   flex-shrink: 1;
   margin-left: auto;
-  min-width: 188px;
   justify-content: flex-end;
+
+  &.small {
+    gap: 20px;
+  }
+
+  &.medium {
+    gap: 30px;
+  }
 }
 
 .quantity {
   font-size: $fs-xs;
   color: $primary-text-color;
   white-space: nowrap;
-  width: 48px;
   text-align: center;
+
+  &.small {
+    width: 48px;
+  }
+
+  &.medium {
+    width: 54px;
+  }
 }
 
 @include respond-to-md-max {

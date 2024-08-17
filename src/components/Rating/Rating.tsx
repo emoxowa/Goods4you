@@ -10,7 +10,7 @@ type Props = {
 }
 
 export const Rating = memo(({ rating, maxRating = 5 }: Props): JSX.Element => {
-  const fullStars = Math.floor(rating)
+  const fullStars = Math.round(rating)
 
   const stars = new Array(maxRating).fill(null)
 

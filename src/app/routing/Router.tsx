@@ -5,12 +5,17 @@ import { CatalogPage } from "src/pages/CatalogPage"
 import { NotFoundPage } from "src/pages/NotFoundPage"
 import { ProductPage } from "src/pages/ProductPage"
 
+import { FetchFirstWrapper } from "./FetchFirstWrapper"
 import { RouterPaths } from "./routerPaths"
 
 export const router = createBrowserRouter([
   {
     path: RouterPaths.MAIN,
-    element: <Layout />,
+    element: (
+      <FetchFirstWrapper>
+        <Layout />
+      </FetchFirstWrapper>
+    ),
     children: [
       {
         path: RouterPaths.MAIN,

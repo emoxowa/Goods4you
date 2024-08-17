@@ -28,6 +28,15 @@
   border-radius: 4px;
 }
 
+.empty {
+  font-size: $fs-xl;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  color: $tertiary-text-color;
+  margin: 0;
+}
+
 @include respond-to-lg-max {
   .container {
     padding: 48px 30px;

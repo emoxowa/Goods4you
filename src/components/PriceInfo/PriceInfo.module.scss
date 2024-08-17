@@ -1,16 +1,18 @@
 .wrapper {
-  display: grid;
+  display: flex;
   align-items: center;
   gap: 10px;
   background-color: rgba(0, 0, 0, 0.04);
   padding: 12px;
   border-radius: 4px;
-  grid-template-columns: auto 176px;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .info {
   display: flex;
   align-items: center;
+  flex-grow: 1;
 }
 
 .priceWrapper {
@@ -57,6 +59,6 @@
 
 @include respond-to-sm-max {
   .wrapper {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 }

@@ -3,12 +3,11 @@ import { useState } from "react"
 import styles from "./ProductGallery.module.scss"
 
 type Props = {
-  thumbnail: string
   images: string[]
 }
 
-export const ProductGallery = ({ thumbnail, images }: Props): JSX.Element => {
-  const [selectedImage, setSelectedImage] = useState(thumbnail)
+export const ProductGallery = ({ images }: Props): JSX.Element => {
+  const [selectedImage, setSelectedImage] = useState(images[0])
 
   const handleImageClick = (image: string) => {
     setSelectedImage(image)
@@ -23,8 +22,8 @@ export const ProductGallery = ({ thumbnail, images }: Props): JSX.Element => {
           className={styles.mainImage}
         />
       </div>
-      <div className={styles.thumbnailsContainer}>
-        {[thumbnail, ...images].map((image, index) => (
+      {images.length > 1 &&<div className={styles.thumbnailsContainer}>
+        {images.map((image, index) => (
           <img
             key={index}
             src={image}
@@ -34,7 +33,7 @@ export const ProductGallery = ({ thumbnail, images }: Props): JSX.Element => {
             role="button"
           />
         ))}
-      </div>
+      </div>}
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet-async"
 import { useParams } from "react-router-dom"
+import { useAppSelector } from "src/app/store"
 import { useGetProductByIdQuery } from "src/app/store/api"
+import { cartSelector } from "src/app/store/slices/cartSlice/cartSlice"
 import { getAvailabilityText } from "src/app/utils/getAvailabilityText"
 import { PriceInfo } from "src/components/PriceInfo"
 import { ProductGallery } from "src/components/ProductGallery"
@@ -11,6 +13,11 @@ import styles from "./ProductPage.module.scss"
 export const ProductPage = (): JSX.Element => {
   const { id } = useParams<{ id: string }>()
   const { data: product, error, isLoading } = useGetProductByIdQuery(Number(id))
+  const cart = useAppSelector(cartSelector)
+
+  const quantity =
+    cart.response?.products.find((p) => p.id === Number(id))?.quantity ?? 0
+
   const handleAdd = (): void => {}
   const handleRemove = (): void => {}
 
@@ -33,7 +40,7 @@ export const ProductPage = (): JSX.Element => {
       </Helmet>
       <section>
         <h2 className={styles.hidden}>Product Gallery</h2>
-        <ProductGallery images={product.images} thumbnail={product.thumbnail} />
+        <ProductGallery images={product.images} />
       </section>
 
       <section className={styles.productDescription}>
@@ -60,7 +67,7 @@ export const ProductPage = (): JSX.Element => {
           discountPercentage={product.discountPercentage}
           onAdd={handleAdd}
           onRemove={handleRemove}
-          quantity={0}
+          quantity={quantity}
         />
       </section>
     </div>
