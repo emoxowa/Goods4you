@@ -3,6 +3,7 @@ import { useAppSelector } from "src/app/store"
 import { cartSelector } from "src/app/store/slices"
 import { CartList } from "src/components/CartList"
 import { CartSummary } from "src/components/CartSummary"
+import { SkeletonCartPage } from "src/components/Skeletons"
 
 import styles from "./CartPage.module.scss"
 export const CartPage = (): JSX.Element => {
@@ -13,10 +14,8 @@ export const CartPage = (): JSX.Element => {
   }
 
   if (cart.status === "loading") {
-    return <p>loading</p>
+    return <SkeletonCartPage />
   }
-
-  console.log(cart)
 
   const handleAdd = (): void => {}
   const handleRemove = (): void => {}

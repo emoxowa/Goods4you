@@ -1,6 +1,7 @@
-import { useCallback} from "react"
+import { useCallback } from "react"
 import { useProductSearch } from "src/app/hooks"
 import { ProductList } from "src/components/ProductList"
+import { SkeletonCatalogSection } from "src/components/Skeletons"
 import { Button } from "src/ui/Button"
 import { Input } from "src/ui/Input"
 
@@ -20,7 +21,10 @@ export const CatalogSection = (): JSX.Element => {
 
   const handleRemoveFromCart = useCallback(() => {}, [])
 
-  if (isLoading) return <p>Loading...</p>
+  if (isLoading) {
+    return <SkeletonCatalogSection />
+  }
+
   if (error) return <p>Error loading products</p>
 
   return (
@@ -46,7 +50,7 @@ export const CatalogSection = (): JSX.Element => {
           onRemove={handleRemoveFromCart}
         />
 
-        {hasMoreProducts && (
+        {hasMoreProducts || !isLoading && (
           <Button onClick={handleShowMore} aria-label="Show more products">
             Show more
           </Button>

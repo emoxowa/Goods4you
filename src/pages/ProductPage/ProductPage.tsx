@@ -7,6 +7,7 @@ import { getAvailabilityText } from "src/app/utils/getAvailabilityText"
 import { PriceInfo } from "src/components/PriceInfo"
 import { ProductGallery } from "src/components/ProductGallery"
 import { Rating } from "src/components/Rating"
+import { SkeletonProductPage } from "src/components/Skeletons"
 
 import styles from "./ProductPage.module.scss"
 
@@ -22,9 +23,9 @@ export const ProductPage = (): JSX.Element => {
   const handleRemove = (): void => {}
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <SkeletonProductPage />
   }
-
+  
   if (error || !product) {
     return <p>Error loading product details.</p>
   }
