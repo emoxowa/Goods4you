@@ -1,25 +1,36 @@
 import { Helmet } from "react-helmet-async"
-import { useAppSelector } from "src/app/store"
-import { cartSelector } from "src/app/store/slices"
+import { useAppDispatch, useAppSelector } from "src/app/store"
+import { cartSelector, fetchCartByUserId } from "src/app/store/slices"
 import { CartList } from "src/components/CartList"
 import { CartSummary } from "src/components/CartSummary"
+import { ErrorDisplay } from "src/components/ErrorDisplay"
 import { SkeletonCartPage } from "src/components/Skeletons"
 
 import styles from "./CartPage.module.scss"
 export const CartPage = (): JSX.Element => {
   const cart = useAppSelector(cartSelector)
+  const dispatch = useAppDispatch()
+
+  const handleAdd = (): void => {}
+  const handleRemove = (): void => {}
+  const handleDelete = (): void => {}
+
+  const handleRetry = () => {
+    dispatch(fetchCartByUserId(15))
+  }
 
   if (cart.status === "error") {
-    return <p>Error</p>
+    return (
+      <ErrorDisplay
+        message="Failed to load your cart. Please try again."
+        onRetry={handleRetry}
+      />
+    )
   }
 
   if (cart.status === "loading") {
     return <SkeletonCartPage />
   }
-
-  const handleAdd = (): void => {}
-  const handleRemove = (): void => {}
-  const handleDelete = (): void => {}
 
   return (
     <>

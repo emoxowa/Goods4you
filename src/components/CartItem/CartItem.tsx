@@ -9,7 +9,7 @@ type Props = {
   id: number
   title: string
   price: number
-  imageUrl: string
+  thumbnail: string
   quantity: number
   onAdd: (id: number) => void
   onRemove: (id: number) => void
@@ -21,7 +21,7 @@ export const CartItem = memo(
     id,
     title,
     price,
-    imageUrl,
+    thumbnail,
     quantity,
     onAdd,
     onRemove,
@@ -30,7 +30,7 @@ export const CartItem = memo(
     return (
       <div className={styles.cartItem}>
         <div className={`${styles.details} ${!quantity ? styles.faded : ""}`}>
-          <img src={imageUrl} alt={title} className={styles.image} />
+          <img src={thumbnail} alt={title} className={styles.image} />
 
           <div className={styles.wrapper}>
             <Link to={`/product/${id}`}>

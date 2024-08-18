@@ -19,7 +19,7 @@ export const useProductSearch = ({
 
   const debouncedQuery = useDebounce(query, debounceDelay)
 
-  const { data, isLoading, error } = useSearchProductsQuery({
+  const { data, isLoading, error, refetch } = useSearchProductsQuery({
     q: debouncedQuery,
     limit,
     skip,
@@ -56,5 +56,6 @@ export const useProductSearch = ({
     handleQueryChange,
     handleShowMore,
     hasMoreProducts,
+    refetch,
   }
 }

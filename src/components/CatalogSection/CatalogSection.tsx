@@ -1,5 +1,6 @@
 import { useCallback } from "react"
 import { useProductSearch } from "src/app/hooks"
+import { ErrorDisplay } from "src/components/ErrorDisplay"
 import { ProductList } from "src/components/ProductList"
 import { SkeletonCatalogSection } from "src/components/Skeletons"
 import { Button } from "src/ui/Button"
@@ -15,6 +16,7 @@ export const CatalogSection = (): JSX.Element => {
     handleQueryChange,
     handleShowMore,
     hasMoreProducts,
+    refetch,
   } = useProductSearch({ limit: 12, debounceDelay: 2000 })
 
   const handleAddToCart = useCallback(() => {}, [])
@@ -25,7 +27,14 @@ export const CatalogSection = (): JSX.Element => {
     return <SkeletonCatalogSection />
   }
 
-  if (error) return <p>Error loading products</p>
+  if (error) {
+    return (
+      <ErrorDisplay
+        message="Failed to load catalog. Please try again."
+        onRetry={refetch}
+      />
+    )
+  }
 
   return (
     <section className={styles.catalog} id="catalog">
@@ -50,7 +59,7 @@ export const CatalogSection = (): JSX.Element => {
           onRemove={handleRemoveFromCart}
         />
 
-        {hasMoreProducts || !isLoading && (
+        {hasMoreProducts && !isLoading && (
           <Button onClick={handleShowMore} aria-label="Show more products">
             Show more
           </Button>

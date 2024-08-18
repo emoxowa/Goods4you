@@ -4,6 +4,7 @@ import { useAppSelector } from "src/app/store"
 import { useGetProductByIdQuery } from "src/app/store/api"
 import { cartSelector } from "src/app/store/slices/cartSlice/cartSlice"
 import { getAvailabilityText } from "src/app/utils/getAvailabilityText"
+import { ErrorDisplay } from "src/components/ErrorDisplay"
 import { PriceInfo } from "src/components/PriceInfo"
 import { ProductGallery } from "src/components/ProductGallery"
 import { Rating } from "src/components/Rating"
@@ -13,7 +14,12 @@ import styles from "./ProductPage.module.scss"
 
 export const ProductPage = (): JSX.Element => {
   const { id } = useParams<{ id: string }>()
-  const { data: product, error, isLoading } = useGetProductByIdQuery(Number(id))
+  const {
+    data: product,
+    error,
+    isLoading,
+    refetch,
+  } = useGetProductByIdQuery(Number(id))
   const cart = useAppSelector(cartSelector)
 
   const quantity =
@@ -25,9 +31,14 @@ export const ProductPage = (): JSX.Element => {
   if (isLoading) {
     return <SkeletonProductPage />
   }
-  
+
   if (error || !product) {
-    return <p>Error loading product details.</p>
+    return (
+      <ErrorDisplay
+        message="Failed to load product details. Please try again."
+        onRetry={refetch}
+      />
+    )
   }
 
   return (
