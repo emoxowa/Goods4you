@@ -7,7 +7,7 @@ type Props = {
   id: number
   title: string
   price: number
-  imageUrl: string
+  thumbnail: string
   quantity: number
   onAdd: (id: number) => void
   onRemove: (id: number) => void
@@ -17,7 +17,7 @@ export const ProductItem = ({
   id,
   title,
   price,
-  imageUrl,
+  thumbnail,
   quantity,
   onAdd,
   onRemove,
@@ -36,7 +36,7 @@ export const ProductItem = ({
   return (
     <div className={styles.productItem} onClick={handleCardClick}>
       <div className={styles.imageWrapper}>
-        <img src={imageUrl} alt={title} className={styles.image} />
+        <img src={thumbnail} alt={title} className={styles.image} />
       </div>
 
       <div className={styles.details}>

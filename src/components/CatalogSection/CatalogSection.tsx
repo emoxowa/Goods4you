@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { products } from "src/assets/data/products"
+import { useCallback} from "react"
+import { useProductSearch } from "src/app/hooks"
 import { ProductList } from "src/components/ProductList"
 import { Button } from "src/ui/Button"
 import { Input } from "src/ui/Input"
@@ -7,17 +7,21 @@ import { Input } from "src/ui/Input"
 import styles from "./CatalogSection.module.scss"
 
 export const CatalogSection = (): JSX.Element => {
-  const [visibleItems, setVisibleItems] = useState(12)
+  const {
+    products,
+    isLoading,
+    error,
+    handleQueryChange,
+    handleShowMore,
+    hasMoreProducts,
+  } = useProductSearch({ limit: 12, debounceDelay: 2000 })
 
-  const visibleProducts = products.slice(0, visibleItems)
+  const handleAddToCart = useCallback(() => {}, [])
 
-  const handleAddToCart = () => {}
+  const handleRemoveFromCart = useCallback(() => {}, [])
 
-  const handleRemoveFromCart = () => {}
-
-  const handleShowMore = () => {
-    setVisibleItems((prevVisibleItems) => prevVisibleItems + 6)
-  }
+  if (isLoading) return <p>Loading...</p>
+  if (error) return <p>Error loading products</p>
 
   return (
     <section className={styles.catalog} id="catalog">
@@ -26,23 +30,23 @@ export const CatalogSection = (): JSX.Element => {
 
         <form className={styles.search}>
           <label htmlFor="search-input"></label>
-          
+
           <Input
             id="search-input"
             type="text"
             placeholder="Search by title"
-            onChange={() => {}}
+            onChange={(e) => handleQueryChange(e.target.value)}
             className={styles.input}
           />
         </form>
 
         <ProductList
-          items={visibleProducts}
+          items={products}
           onAdd={handleAddToCart}
           onRemove={handleRemoveFromCart}
         />
 
-        {visibleItems < products.length && (
+        {hasMoreProducts && (
           <Button onClick={handleShowMore} aria-label="Show more products">
             Show more
           </Button>
