@@ -1,35 +1,35 @@
 import { memo } from "react"
+import { useCartActions } from "src/app/hooks/useCartActions"
 import { CartProduct } from "src/app/store/slices/cartSlice/types"
 import { CartItem } from "src/components/CartItem"
 
 import styles from "./CartList.module.scss"
 
 type Props = {
+  cartId: number
   products: CartProduct[]
-  onAdd: (id: number) => void
-  onRemove: (id: number) => void
-  onDelete: (id: number) => void
 }
-export const CartList = memo(
-  ({ products, onAdd, onRemove, onDelete }: Props): JSX.Element => {
-    return (
-      <div className={styles.cartList} aria-label="Shopping Cart Items">
-        {products.map((product) => (
-          <CartItem
-            key={product.id}
-            id={product.id}
-            title={product.title}
-            price={product.discountedTotal}
-            thumbnail={product.thumbnail}
-            quantity={product.quantity}
-            onAdd={onAdd}
-            onRemove={onRemove}
-            onDelete={onDelete}
-          />
-        ))}
-      </div>
-    )
-  },
-)
+export const CartList = memo(({ cartId, products }: Props): JSX.Element => {
+  const { addProductToCart, removeProductFromCart, deleteProductFromCart } =
+    useCartActions(cartId)
+
+  return (
+    <div className={styles.cartList} aria-label="Shopping Cart Items">
+      {products.map((product) => (
+        <CartItem
+          key={product.id}
+          id={product.id}
+          title={product.title}
+          price={product.discountedTotal}
+          thumbnail={product.thumbnail}
+          quantity={product.quantity}
+          onAdd={() => addProductToCart(product.id, product.quantity)}
+          onRemove={() => removeProductFromCart(product.id, product.quantity)}
+          onDelete={() => deleteProductFromCart(product.id)}
+        />
+      ))}
+    </div>
+  )
+})
 
 CartList.displayName = "CartList"

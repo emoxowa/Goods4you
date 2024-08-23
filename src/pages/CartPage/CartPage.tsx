@@ -11,10 +11,6 @@ export const CartPage = (): JSX.Element => {
   const cart = useAppSelector(cartSelector)
   const dispatch = useAppDispatch()
 
-  const handleAdd = (): void => {}
-  const handleRemove = (): void => {}
-  const handleDelete = (): void => {}
-
   const handleRetry = () => {
     dispatch(fetchCartByUserId(15))
   }
@@ -50,10 +46,8 @@ export const CartPage = (): JSX.Element => {
           <div className={styles.cartContent}>
             <section className={styles.cartList}>
               <CartList
+                cartId={cart.response?.id}
                 products={cart.response?.products ?? []}
-                onAdd={handleAdd}
-                onRemove={handleRemove}
-                onDelete={handleDelete}
               />
             </section>
 

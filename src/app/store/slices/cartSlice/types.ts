@@ -18,3 +18,9 @@ export type Cart = {
   totalProducts: number
   totalQuantity: number
 }
+
+export type UpdatedData = {
+  cartId: number
+  productId: number
+  quantity: number
+}

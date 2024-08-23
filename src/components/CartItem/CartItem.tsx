@@ -11,9 +11,9 @@ type Props = {
   price: number
   thumbnail: string
   quantity: number
-  onAdd: (id: number) => void
-  onRemove: (id: number) => void
-  onDelete: (id: number) => void
+  onAdd: () => void
+  onRemove: () => void
+  onDelete: () => void
 }
 
 export const CartItem = memo(
@@ -27,6 +27,7 @@ export const CartItem = memo(
     onRemove,
     onDelete,
   }: Props): JSX.Element => {
+    
     return (
       <div className={styles.cartItem}>
         <div className={`${styles.details} ${!quantity ? styles.faded : ""}`}>
@@ -51,7 +52,7 @@ export const CartItem = memo(
             />
 
             <button
-              onClick={() => onDelete(id)}
+              onClick={onDelete}
               className={styles.deleteButton}
               aria-label={`Delete ${title} from cart`}
             >
@@ -63,7 +64,7 @@ export const CartItem = memo(
             className={styles.addToCartButton}
             onClick={(e) => {
               e.stopPropagation()
-              onAdd(id)
+              onAdd()
             }}
             aria-label={`Add ${title} to cart`}
           />
