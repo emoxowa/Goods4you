@@ -26,7 +26,7 @@ export const CartList = memo(({ cartId, products }: Props): JSX.Element => {
           thumbnail={product.thumbnail}
           quantity={product.quantity}
           onAdd={() => addProductToCart(product.id, product.quantity)}
-          onRemove={() => removeProductFromCart(product.id, product.quantity)}
+          onRemove={() => removeProductFromCart(product, product.quantity)}
           onDelete={() => deleteProductFromCart(product)}
           isLoading={isLoading}
         />

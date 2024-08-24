@@ -28,6 +28,7 @@ export const ProductList = memo(({ items }: Props): JSX.Element => {
             thumbnail={item.thumbnail}
             quantity={quantity}
             cartId={cart.response?.id}
+            product={item}
           />
         ) : (
           <></>

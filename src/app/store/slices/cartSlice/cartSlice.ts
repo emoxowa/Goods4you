@@ -54,7 +54,12 @@ const cartSlice = createSlice({
   reducers: {
     addRemovedProduct: (state, action) => {
       state.removedProducts.push(action.payload)
-    }
+    },
+    removeProductFromRemoved: (state, action) => {
+      state.removedProducts = state.removedProducts.filter(
+        (product) => product.id !== action.payload,
+      )
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -86,4 +91,4 @@ export const cart = cartSlice.reducer
 export const cartSelector = (state: RootState) => state.cart
 export const totalQuantitySelector = (state: RootState) =>
   state.cart.response?.totalQuantity ?? 0
-export const { addRemovedProduct } = cartSlice.actions
+export const { addRemovedProduct, removeProductFromRemoved } = cartSlice.actions

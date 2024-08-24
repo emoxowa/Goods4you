@@ -64,7 +64,8 @@ export const CartItem = memo(
         ) : (
           <ButtonAddToCart
             className={styles.addToCartButton}
-            onClick={(e) => {
+              onClick={(e) => {
+              e.preventDefault()
               e.stopPropagation()
               onAdd()
             }}

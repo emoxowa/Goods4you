@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom"
 import { useCartActions } from "src/app/hooks/useCartActions"
+import { Product } from "src/app/store/api/types"
 import { ButtonAddToCart } from "src/components/ButtonAddToCart"
 import { QuantityControls } from "src/components/QuantityControls"
 
@@ -11,6 +13,7 @@ type Props = {
   thumbnail: string
   quantity: number
   cartId: number
+  product: Product
 }
 
 export const ProductItem = ({
@@ -20,22 +23,13 @@ export const ProductItem = ({
   thumbnail,
   quantity,
   cartId,
+  product,
 }: Props): JSX.Element => {
   const { addProductToCart, removeProductFromCart, isLoading } =
     useCartActions(cartId)
-  const handleCardClick = (e: React.MouseEvent) => {
-    if (
-      !(
-        e.target instanceof HTMLButtonElement ||
-        e.target instanceof HTMLImageElement
-      )
-    ) {
-      window.location.href = `/product/${id}`
-    }
-  }
 
   return (
-    <div className={styles.productItem} onClick={handleCardClick}>
+    <Link to={`/product/${id}`} className={styles.productItem}>
       <div className={styles.imageWrapper}>
         <img src={thumbnail} alt={title} className={styles.image} />
       </div>
@@ -50,19 +44,20 @@ export const ProductItem = ({
           <QuantityControls
             quantity={quantity}
             onAdd={() => addProductToCart(id, quantity)}
-            onRemove={() => removeProductFromCart(id, quantity)}
+            onRemove={() => removeProductFromCart(product, quantity)}
             isLoading={isLoading}
           />
         ) : (
           <ButtonAddToCart
             isLoading={isLoading}
             onClick={(e) => {
+              e.preventDefault()
               e.stopPropagation()
               addProductToCart(id, quantity)
             }}
           />
         )}
       </div>
-    </div>
+    </Link>
   )
 }

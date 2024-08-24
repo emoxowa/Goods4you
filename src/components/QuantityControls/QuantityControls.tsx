@@ -29,6 +29,7 @@ export const QuantityControls = memo(
       >
         <Button
           onClick={(e) => {
+            e.preventDefault()
             e.stopPropagation()
             onRemove()
           }}
@@ -52,6 +53,7 @@ export const QuantityControls = memo(
 
         <Button
           onClick={(e) => {
+            e.preventDefault()
             e.stopPropagation()
             onAdd()
           }}
