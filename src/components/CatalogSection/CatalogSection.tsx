@@ -18,8 +18,6 @@ export const CatalogSection = (): JSX.Element => {
     refetch,
   } = useProductSearch({ limit: 12, debounceDelay: 2000 })
 
-  console.log(products)
-
   if (isLoading) {
     return <SkeletonCatalogSection />
   }

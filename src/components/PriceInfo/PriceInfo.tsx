@@ -1,9 +1,9 @@
 import { useCartActions } from "src/app/hooks/useCartActions"
 import { Product } from "src/app/store/api/types"
 import { calculateDiscountedTotal } from "src/app/utils/calculateDiscountedTotal"
+import { QuantityControls } from "src/components/QuantityControls"
 import { Button } from "src/ui/Button"
 
-import { QuantityControls } from "../QuantityControls"
 import styles from "./PriceInfo.module.scss"
 
 type Props = {

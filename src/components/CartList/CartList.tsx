@@ -10,8 +10,12 @@ type Props = {
   products: CartProduct[]
 }
 export const CartList = memo(({ cartId, products }: Props): JSX.Element => {
-  const { addProductToCart, removeProductFromCart, deleteProductFromCart, isLoading } =
-    useCartActions(cartId)
+  const {
+    addProductToCart,
+    removeProductFromCart,
+    deleteProductFromCart,
+    isLoading,
+  } = useCartActions(cartId)
 
   const sortedProducts = [...products].sort((a, b) => a.id - b.id)
 
@@ -22,7 +26,7 @@ export const CartList = memo(({ cartId, products }: Props): JSX.Element => {
           key={product.id}
           id={product.id}
           title={product.title}
-          price={product.discountedTotal}
+          price={product.price}
           thumbnail={product.thumbnail}
           quantity={product.quantity}
           onAdd={() => addProductToCart(product.id, product.quantity)}

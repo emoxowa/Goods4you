@@ -1,13 +1,12 @@
 import { useCallback, useState } from "react"
 import { useAppDispatch } from "src/app/store"
+import { Product } from "src/app/store/api/types"
 import {
   removeProductFromRemoved,
   updateCart,
 } from "src/app/store/slices/cartSlice"
 import { addRemovedProduct } from "src/app/store/slices/cartSlice"
 import { CartProduct, UpdatedData } from "src/app/store/slices/cartSlice/types"
-
-import { Product } from "../store/api/types"
 
 export const useCartActions = (cartId: number) => {
   const dispatch = useAppDispatch()

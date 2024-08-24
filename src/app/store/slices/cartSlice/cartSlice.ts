@@ -31,7 +31,9 @@ export const updateCart = createAsyncThunk(
     const updatedProducts = productExists
       ? cart.products
           .map((product) =>
-            product.id === productId ? { ...product, quantity } : product,
+            product.id === productId
+              ? { id: product.id, quantity }
+              : { id: product.id, quantity: product.quantity },
           )
           .filter((product) => product.quantity > 0)
       : [...cart.products, { id: productId, quantity }]
