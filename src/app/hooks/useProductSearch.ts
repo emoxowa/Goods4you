@@ -32,7 +32,7 @@ export const useProductSearch = ({
       )
       setTotalProducts(data.total)
     }
-  }, [data, isLoading, error, skip])
+  }, [data, isLoading, error])
 
   const handleQueryChange = useCallback((newQuery: string) => {
     setQuery(newQuery)
