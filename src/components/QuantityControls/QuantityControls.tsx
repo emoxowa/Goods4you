@@ -8,15 +8,21 @@ import { Button } from "src/ui/Button"
 import styles from "./QuantityControls.module.scss"
 
 type Props = {
-  id: number
   quantity: number
   size?: "small" | "medium"
-  onAdd: (id: number) => void
-  onRemove: (id: number) => void
+  onAdd: () => void
+  onRemove: () => void
+  isLoading?: boolean
 }
 
 export const QuantityControls = memo(
-  ({ id, quantity, size = "small", onAdd, onRemove }: Props): JSX.Element => {
+  ({
+    quantity,
+    size = "small",
+    onAdd,
+    onRemove,
+    isLoading,
+  }: Props): JSX.Element => {
     return (
       <div
         className={`${styles.controls} ${size === "small" ? styles.small : styles.medium}`}
@@ -24,12 +30,13 @@ export const QuantityControls = memo(
         <Button
           onClick={(e) => {
             e.stopPropagation()
-            onRemove(id)
+            onRemove()
           }}
           className={styles.button}
           size={size}
           aria-label="Decrease quantity"
           variant="square"
+          disabled={isLoading}
         >
           <img
             src={size === "small" ? minusSmall : minus}
@@ -46,12 +53,13 @@ export const QuantityControls = memo(
         <Button
           onClick={(e) => {
             e.stopPropagation()
-            onAdd(id)
+            onAdd()
           }}
           className={styles.button}
           size={size}
           aria-label="Increase quantity"
           variant="square"
+          disabled={isLoading}
         >
           <img
             src={size === "small" ? plusSmall : plus}

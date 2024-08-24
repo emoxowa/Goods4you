@@ -1,4 +1,3 @@
-import { useCallback } from "react"
 import { useProductSearch } from "src/app/hooks"
 import { ErrorDisplay } from "src/components/ErrorDisplay"
 import { ProductList } from "src/components/ProductList"
@@ -18,10 +17,6 @@ export const CatalogSection = (): JSX.Element => {
     hasMoreProducts,
     refetch,
   } = useProductSearch({ limit: 12, debounceDelay: 2000 })
-
-  const handleAddToCart = useCallback(() => {}, [])
-
-  const handleRemoveFromCart = useCallback(() => {}, [])
 
   if (isLoading) {
     return <SkeletonCatalogSection />
@@ -53,11 +48,7 @@ export const CatalogSection = (): JSX.Element => {
           />
         </form>
 
-        <ProductList
-          items={products}
-          onAdd={handleAddToCart}
-          onRemove={handleRemoveFromCart}
-        />
+        <ProductList items={products} />
 
         {hasMoreProducts && !isLoading && (
           <Button onClick={handleShowMore} aria-label="Show more products">

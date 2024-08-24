@@ -49,7 +49,6 @@ type Story = StoryObj<typeof meta>
 
 export const Small: Story = {
   args: {
-    id: 1,
     quantity: 2,
     size: "small",
   },
@@ -57,7 +56,6 @@ export const Small: Story = {
 
 export const Medium: Story = {
   args: {
-    id: 2,
     quantity: 5,
     size: "medium",
   },

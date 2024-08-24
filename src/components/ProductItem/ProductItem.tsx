@@ -1,3 +1,4 @@
+import { useCartActions } from "src/app/hooks/useCartActions"
 import { ButtonAddToCart } from "src/components/ButtonAddToCart"
 import { QuantityControls } from "src/components/QuantityControls"
 
@@ -9,8 +10,7 @@ type Props = {
   price: number
   thumbnail: string
   quantity: number
-  onAdd: (id: number) => void
-  onRemove: (id: number) => void
+  cartId: number
 }
 
 export const ProductItem = ({
@@ -19,9 +19,10 @@ export const ProductItem = ({
   price,
   thumbnail,
   quantity,
-  onAdd,
-  onRemove,
+  cartId,
 }: Props): JSX.Element => {
+  const { addProductToCart, removeProductFromCart, isLoading } =
+    useCartActions(cartId)
   const handleCardClick = (e: React.MouseEvent) => {
     if (
       !(
@@ -47,16 +48,17 @@ export const ProductItem = ({
 
         {quantity > 0 ? (
           <QuantityControls
-            id={id}
             quantity={quantity}
-            onAdd={onAdd}
-            onRemove={onRemove}
+            onAdd={() => addProductToCart(id, quantity)}
+            onRemove={() => removeProductFromCart(id, quantity)}
+            isLoading={isLoading}
           />
         ) : (
           <ButtonAddToCart
+            isLoading={isLoading}
             onClick={(e) => {
               e.stopPropagation()
-              onAdd(id)
+              addProductToCart(id, quantity)
             }}
           />
         )}

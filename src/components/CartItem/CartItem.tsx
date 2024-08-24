@@ -14,6 +14,7 @@ type Props = {
   onAdd: () => void
   onRemove: () => void
   onDelete: () => void
+  isLoading: boolean
 }
 
 export const CartItem = memo(
@@ -26,8 +27,8 @@ export const CartItem = memo(
     onAdd,
     onRemove,
     onDelete,
+    isLoading,
   }: Props): JSX.Element => {
-    
     return (
       <div className={styles.cartItem}>
         <div className={`${styles.details} ${!quantity ? styles.faded : ""}`}>
@@ -44,14 +45,15 @@ export const CartItem = memo(
         {quantity > 0 ? (
           <div className={styles.controls}>
             <QuantityControls
-              id={id}
               quantity={quantity}
               onAdd={onAdd}
               onRemove={onRemove}
+              isLoading={isLoading}
               aria-label={`Change quantity of ${title}`}
             />
 
             <button
+              disabled={isLoading}
               onClick={onDelete}
               className={styles.deleteButton}
               aria-label={`Delete ${title} from cart`}
@@ -67,6 +69,7 @@ export const CartItem = memo(
               onAdd()
             }}
             aria-label={`Add ${title} to cart`}
+            isLoading={isLoading}
           />
         )}
       </div>

@@ -24,12 +24,17 @@ export const updateCartByCartId = createAsyncThunk(
       throw new Error("Cart not found")
     }
 
+    const productExists = cart.products.some(
+      (product) => product.id === productId,
+    )
 
-    const updatedProducts = cart.products
-      .map((product) =>
-        product.id === productId ? { ...product, quantity } : product,
-      )
-      .filter((product) => product.quantity > 0)
+    const updatedProducts = productExists
+      ? cart.products
+          .map((product) =>
+            product.id === productId ? { ...product, quantity } : product,
+          )
+          .filter((product) => product.quantity > 0)
+      : [...cart.products, { id: productId, quantity }]
 
     const response = await http.put<Cart>(`${API_PATHS.CARTS}/${cartId}`, {
       merge: false,
@@ -58,15 +63,9 @@ const cartSlice = createSlice({
         state.status = "error"
         state.response = undefined
       })
-      .addCase(updateCartByCartId.pending, (state) => {
-        state.status = "loading"
-      })
       .addCase(updateCartByCartId.fulfilled, (state, action) => {
         state.status = "fulfilled"
         state.response = action.payload
-      })
-      .addCase(updateCartByCartId.rejected, (state) => {
-        state.status = "error"
       })
   },
 })

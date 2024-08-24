@@ -1,3 +1,4 @@
+import { useCartActions } from "src/app/hooks/useCartActions"
 import { calculateDiscountedTotal } from "src/app/utils/calculateDiscountedTotal"
 import { Button } from "src/ui/Button"
 
@@ -9,18 +10,18 @@ type Props = {
   price: number
   discountPercentage: number
   quantity: number
-  onAdd: () => void
-  onRemove: () => void
+  cartId: number
 }
 export const PriceInfo = ({
   id,
   price,
   discountPercentage,
   quantity,
-  onAdd,
-  onRemove,
+  cartId,
 }: Props): JSX.Element => {
   const discountedTotal = calculateDiscountedTotal(price, discountPercentage)
+  const { addProductToCart, removeProductFromCart, isLoading } =
+    useCartActions(cartId)
 
   return (
     <div className={styles.wrapper}>
@@ -39,14 +40,19 @@ export const PriceInfo = ({
 
       {quantity > 0 ? (
         <QuantityControls
-          id={id}
           quantity={quantity}
-          onAdd={onAdd}
-          onRemove={onRemove}
+          onAdd={() => addProductToCart(id, quantity)}
+          onRemove={() => removeProductFromCart(id, quantity)}
           size="medium"
+          isLoading={isLoading}
         />
       ) : (
-        <Button onClick={onAdd}>Add to cart</Button>
+        <Button
+          onClick={() => addProductToCart(id, quantity)}
+          disabled={isLoading}
+        >
+          Add to cart
+        </Button>
       )}
     </div>
   )
