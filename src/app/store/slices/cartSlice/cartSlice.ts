@@ -1,8 +1,8 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit"
 import { API_PATHS, http, InitialState, StateFromApi } from "src/app/api"
 import { RootState } from "src/app/store"
 
-import { Cart, UpdatedData } from "./types"
+import { Cart, CartProduct, UpdatedData } from "./types"
 
 export const fetchCartByUserId = createAsyncThunk(
   "cart/fetchCartByUserId",
@@ -14,8 +14,8 @@ export const fetchCartByUserId = createAsyncThunk(
   },
 )
 
-export const updateCartByCartId = createAsyncThunk(
-  "cart/updateCartByCartId",
+export const updateCart = createAsyncThunk(
+  "cart/updateCart",
   async ({ cartId, productId, quantity }: UpdatedData, { getState }) => {
     const state = getState() as RootState
     const cart = state.cart.response
@@ -47,8 +47,15 @@ export const updateCartByCartId = createAsyncThunk(
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState: InitialState as StateFromApi<Cart>,
-  reducers: {},
+  initialState: {
+    ...InitialState,
+    removedProducts: [] as CartProduct[],
+  } as StateFromApi<Cart> & { removedProducts: CartProduct[] },
+  reducers: {
+    addRemovedProduct: (state, action) => {
+      state.removedProducts.push(action.payload)
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCartByUserId.pending, (state) => {
@@ -63,9 +70,14 @@ const cartSlice = createSlice({
         state.status = "error"
         state.response = undefined
       })
-      .addCase(updateCartByCartId.fulfilled, (state, action) => {
+      .addCase(updateCart.fulfilled, (state, action) => {
+        const removedProducts = current(state.removedProducts)
+
         state.status = "fulfilled"
-        state.response = action.payload
+        state.response = {
+          ...action.payload,
+          products: [...action.payload.products, ...removedProducts],
+        }
       })
   },
 })
@@ -74,3 +86,4 @@ export const cart = cartSlice.reducer
 export const cartSelector = (state: RootState) => state.cart
 export const totalQuantitySelector = (state: RootState) =>
   state.cart.response?.totalQuantity ?? 0
+export const { addRemovedProduct } = cartSlice.actions

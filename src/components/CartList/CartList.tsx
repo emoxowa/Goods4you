@@ -13,9 +13,11 @@ export const CartList = memo(({ cartId, products }: Props): JSX.Element => {
   const { addProductToCart, removeProductFromCart, deleteProductFromCart, isLoading } =
     useCartActions(cartId)
 
+  const sortedProducts = [...products].sort((a, b) => a.id - b.id)
+
   return (
     <div className={styles.cartList} aria-label="Shopping Cart Items">
-      {products.map((product) => (
+      {sortedProducts.map((product) => (
         <CartItem
           key={product.id}
           id={product.id}
@@ -25,7 +27,7 @@ export const CartList = memo(({ cartId, products }: Props): JSX.Element => {
           quantity={product.quantity}
           onAdd={() => addProductToCart(product.id, product.quantity)}
           onRemove={() => removeProductFromCart(product.id, product.quantity)}
-          onDelete={() => deleteProductFromCart(product.id)}
+          onDelete={() => deleteProductFromCart(product)}
           isLoading={isLoading}
         />
       ))}
