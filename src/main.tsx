@@ -7,12 +7,15 @@ import { Provider } from "react-redux"
 import { RouterProvider } from "react-router-dom"
 import { router } from "src/app/routing"
 import { store } from "src/app/store"
+import { NotificationProvider } from "src/ui/Notification"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
       <HelmetProvider>
-        <RouterProvider router={router} />
+        <NotificationProvider>
+          <RouterProvider router={router} />
+        </NotificationProvider>
       </HelmetProvider>
     </Provider>
   </StrictMode>,

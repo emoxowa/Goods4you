@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react"
+import { useNotification } from "src/app/hooks"
 import { useAppDispatch } from "src/app/store"
 import { Product } from "src/app/store/api/types"
 import {
@@ -11,6 +12,7 @@ import { CartProduct, UpdatedData } from "src/app/store/slices/cartSlice/types"
 export const useCartActions = (cartId: number) => {
   const dispatch = useAppDispatch()
   const [isLoading, setIsLoading] = useState(false)
+  const { showNotification } = useNotification()
 
   const addProductToCart = useCallback(
     (productId: number, quantity: number) => {
@@ -21,7 +23,9 @@ export const useCartActions = (cartId: number) => {
       Promise.all([
         dispatch(updateCart(data)).unwrap(),
         dispatch(removeProductFromRemoved(productId)),
-      ]).finally(() => setIsLoading(false))
+      ])
+        .catch(() => showNotification("error", "Failed to add product to cart"))
+        .finally(() => setIsLoading(false))
     },
     [dispatch, cartId],
   )
@@ -39,7 +43,11 @@ export const useCartActions = (cartId: number) => {
           quantity: newQuantity,
         }
 
-        dispatch(updateCart(data)).finally(() => setIsLoading(false))
+        dispatch(updateCart(data)).unwrap()
+          .catch(() =>
+            showNotification("error", "Failed to remove product from cart"),
+          )
+          .finally(() => setIsLoading(false))
       }
     },
     [dispatch, cartId],
@@ -53,7 +61,11 @@ export const useCartActions = (cartId: number) => {
       Promise.all([
         dispatch(updateCart(data)).unwrap(),
         dispatch(addRemovedProduct({ ...product, quantity: 0 })),
-      ]).finally(() => setIsLoading(false))
+      ])
+        .catch(() =>
+          showNotification("error", "Failed to delete product from cart"),
+        )
+        .finally(() => setIsLoading(false))
     },
     [dispatch, cartId],
   )
