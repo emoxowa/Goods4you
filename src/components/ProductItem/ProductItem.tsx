@@ -27,6 +27,8 @@ export const ProductItem = ({
 }: Props): JSX.Element => {
   const { addProductToCart, removeProductFromCart, isLoading } =
     useCartActions(cartId)
+  
+  const isAddButtonDisabled = quantity >= product.stock
 
   return (
     <Link to={`/product/${id}`} className={styles.productItem}>
@@ -46,10 +48,12 @@ export const ProductItem = ({
             onAdd={() => addProductToCart(id, quantity)}
             onRemove={() => removeProductFromCart(product, quantity)}
             isLoading={isLoading}
+            isAddButtonDisabled={isAddButtonDisabled}
           />
         ) : (
           <ButtonAddToCart
             isLoading={isLoading}
+            isAddButtonDisabled={isAddButtonDisabled}
             onClick={(e) => {
               e.preventDefault()
               e.stopPropagation()

@@ -13,6 +13,7 @@ type Props = {
   onAdd: () => void
   onRemove: () => void
   isLoading?: boolean
+  isAddButtonDisabled?: boolean
 }
 
 export const QuantityControls = memo(
@@ -22,6 +23,7 @@ export const QuantityControls = memo(
     onAdd,
     onRemove,
     isLoading,
+    isAddButtonDisabled,
   }: Props): JSX.Element => {
     return (
       <div
@@ -61,7 +63,7 @@ export const QuantityControls = memo(
           size={size}
           aria-label="Increase quantity"
           variant="square"
-          disabled={isLoading}
+          disabled={isLoading || isAddButtonDisabled}
         >
           <img
             src={size === "small" ? plusSmall : plus}

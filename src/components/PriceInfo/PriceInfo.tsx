@@ -26,6 +26,8 @@ export const PriceInfo = ({
   const { addProductToCart, removeProductFromCart, isLoading } =
     useCartActions(cartId)
 
+  const isAddButtonDisabled = quantity >= product.stock
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.info}>
@@ -48,11 +50,12 @@ export const PriceInfo = ({
           onRemove={() => removeProductFromCart(product, quantity)}
           size="medium"
           isLoading={isLoading}
+          isAddButtonDisabled={isAddButtonDisabled}
         />
       ) : (
         <Button
           onClick={() => addProductToCart(id, quantity)}
-          disabled={isLoading}
+          disabled={isLoading || isAddButtonDisabled}
         >
           Add to cart
         </Button>
