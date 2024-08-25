@@ -11,17 +11,23 @@ import styles from "./Authentication.module.scss"
 export const Authentication = (): JSX.Element => {
   const [username, setUsername] = useState("williamg")
   const [password, setPassword] = useState("williamgpass")
+  const [error, setError] = useState<string | null>(null)
   const [login, { isLoading: isLoginLoading }] = useLoginMutation()
   const navigate = useNavigate()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
+    if (!username || !password) {
+      setError("Both fields are required.")
+      return
+    }
+
     try {
       const authData = await login({
         username,
         password,
-        expiresInMins: 1,
+        expiresInMins: 30,
       }).unwrap()
       if (authData) {
         localStorage.setItem(TOKENS.ACCESS_TOKEN, authData.token)
@@ -29,6 +35,7 @@ export const Authentication = (): JSX.Element => {
       }
     } catch (err) {
       console.error("Failed to login:", err)
+      setError("Login failed. Please try again.")
     }
   }
 
@@ -40,14 +47,23 @@ export const Authentication = (): JSX.Element => {
           type="text"
           placeholder="Login"
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => {
+            setUsername(e.target.value)
+            setError(null)
+          }}
+          required
         />
         <Input
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {
+            setPassword(e.target.value)
+            setError(null)
+          }}
+          required
         />
+        {error && <p className={styles.error}>{error}</p>}
         <Button
           type="submit"
           className={styles.button}

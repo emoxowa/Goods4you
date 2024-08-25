@@ -45,12 +45,15 @@ export const FetchFirstWrapper = ({
           setLoading(false)
         })
     } else if (error) {
-      if ("status" in error && error.status === 401) {
-        localStorage.removeItem(TOKENS.ACCESS_TOKEN)
-        navigate(RouterPaths.AUTH)
-      } else {
-        console.error("Failed to fetch user data:", error)
+      if ("status" in error) {
+        if (error.status === 401 || error.status === 404) {
+          localStorage.removeItem(TOKENS.ACCESS_TOKEN)
+          navigate(RouterPaths.AUTH)
+        } else {
+          console.error("Failed to fetch user data:", error)
+        }
       }
+      setLoading(false)
     }
   }, [dispatch, navigate, storageToken, user, isUserLoading, error])
 
