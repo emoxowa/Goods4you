@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react"
 import { useNotification } from "src/app/hooks"
 import { useAppDispatch } from "src/app/store"
-import { Product } from "src/app/store/api/types"
+import { Product } from "src/app/store/api/productApi/types"
 import {
   removeProductFromRemoved,
   updateCart,
@@ -43,7 +43,8 @@ export const useCartActions = (cartId: number) => {
           quantity: newQuantity,
         }
 
-        dispatch(updateCart(data)).unwrap()
+        dispatch(updateCart(data))
+          .unwrap()
           .catch(() =>
             showNotification("error", "Failed to remove product from cart"),
           )

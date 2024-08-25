@@ -1,5 +1,5 @@
 import { useCartActions } from "src/app/hooks/useCartActions"
-import { Product } from "src/app/store/api/types"
+import { Product } from "src/app/store/api/productApi/types"
 import { calculateDiscountedTotal } from "src/app/utils/calculateDiscountedTotal"
 import { QuantityControls } from "src/components/QuantityControls"
 import { Button } from "src/ui/Button"

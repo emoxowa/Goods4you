@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async"
 import { useParams } from "react-router-dom"
 import { useAppSelector } from "src/app/store"
-import { useGetProductByIdQuery } from "src/app/store/api"
+import { useGetProductByIdQuery } from "src/app/store/api/productApi"
 import { cartSelector } from "src/app/store/slices/cartSlice/cartSlice"
 import { getAvailabilityText } from "src/app/utils/getAvailabilityText"
 import { ErrorDisplay } from "src/components/ErrorDisplay"

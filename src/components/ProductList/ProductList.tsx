@@ -1,6 +1,6 @@
 import { memo } from "react"
 import { useAppSelector } from "src/app/store"
-import { Product } from "src/app/store/api/types"
+import { Product } from "src/app/store/api/productApi/types"
 import { cartSelector } from "src/app/store/slices/cartSlice"
 import { ProductItem } from "src/components/ProductItem"
 

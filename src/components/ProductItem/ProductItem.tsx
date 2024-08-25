@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useCartActions } from "src/app/hooks/useCartActions"
-import { Product } from "src/app/store/api/types"
+import { Product } from "src/app/store/api/productApi/types"
 import { ButtonAddToCart } from "src/components/ButtonAddToCart"
 import { QuantityControls } from "src/components/QuantityControls"
 
@@ -27,7 +27,7 @@ export const ProductItem = ({
 }: Props): JSX.Element => {
   const { addProductToCart, removeProductFromCart, isLoading } =
     useCartActions(cartId)
-  
+
   const isAddButtonDisabled = quantity >= product.stock
 
   return (

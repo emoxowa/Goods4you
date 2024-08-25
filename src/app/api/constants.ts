@@ -6,4 +6,11 @@ export const API_PATHS = {
   PRODUCTS: "/products",
   CARTS: "/carts",
   USERS: "/users",
+  AUTH: "/auth",
+  LOGIN: "/login",
+}
+
+// Tokens
+export enum TOKENS {
+  ACCESS_TOKEN = "authToken",
 }

@@ -8,10 +8,11 @@ import styles from "./Navigation.module.scss"
 type Props = {
   type: "header" | "footer"
   totalQuantity?: number
+  userName: string
 }
 
 export const Navigation = React.memo(
-  ({ type, totalQuantity = 0 }: Props): JSX.Element => {
+  ({ type, totalQuantity = 0, userName }: Props): JSX.Element => {
     const { handleNavigation } = useNavigationAndScroll()
 
     return (
@@ -46,7 +47,7 @@ export const Navigation = React.memo(
               </Link>
             </li>
           )}
-          {type === "header" && <li className={styles.link}>Johnson Smith</li>}
+          {type === "header" && <li className={styles.link}>{userName}</li>}
         </ul>
       </nav>
     )

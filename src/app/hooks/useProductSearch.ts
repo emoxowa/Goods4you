@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { useDebounce } from "src/app/hooks"
-import { useSearchProductsQuery } from "src/app/store/api"
-import { Product } from "src/app/store/api/types"
+import { useSearchProductsQuery } from "src/app/store/api/productApi"
+import { Product } from "src/app/store/api/productApi/types"
 
 interface UseProductSearchProps {
   limit: number
