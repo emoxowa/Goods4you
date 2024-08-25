@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import { Layout } from "src/components/layout"
+import { AuthPage } from "src/pages/AuthPage"
 import { CartPage } from "src/pages/CartPage"
 import { CatalogPage } from "src/pages/CatalogPage"
 import { NotFoundPage } from "src/pages/NotFoundPage"
@@ -9,6 +10,11 @@ import { FetchFirstWrapper } from "./FetchFirstWrapper"
 import { RouterPaths } from "./routerPaths"
 
 export const router = createBrowserRouter([
+  {
+    path: RouterPaths.AUTH,
+    element: <AuthPage />,
+    errorElement: <></>,
+  },
   {
     path: RouterPaths.MAIN,
     element: (
