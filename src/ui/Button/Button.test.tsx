@@ -11,15 +11,9 @@ describe("Button component", () => {
 
     expect(buttonElement).toBeInTheDocument()
 
-    expect(buttonElement).toHaveClass(
-      "_button_b22f72 _default_b22f72 _medium_b22f72",
-    )
-    expect(buttonElement).toHaveClass(
-      "_button_b22f72 _default_b22f72 _medium_b22f72",
-    )
-    expect(buttonElement).toHaveClass(
-      "_button_b22f72 _default_b22f72 _medium_b22f72",
-    )
+    expect(buttonElement.className).toMatch(/_button_/)
+    expect(buttonElement.className).toMatch(/_default_/)
+    expect(buttonElement.className).toMatch(/_medium_/)
   })
 
   it("applies custom className", () => {
@@ -39,14 +33,9 @@ describe("Button component", () => {
 
     const buttonElement = screen.getByRole("button", { name: /click me/i })
 
-    expect(buttonElement).toHaveClass(
-      "_button_b22f72 _square_b22f72 _small_b22f72",
-    )
-    expect(buttonElement).toHaveClass(
-      "_button_b22f72 _square_b22f72 _small_b22f72",
-    )
+    expect(buttonElement.className).toMatch(/_square_/)
+    expect(buttonElement.className).toMatch(/_small_/)
   })
-
 
   it("passes additional props to the button element", () => {
     render(<Button type="submit">Submit</Button>)
