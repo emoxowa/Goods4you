@@ -9,7 +9,7 @@ describe("CartSummary component", () => {
 
     expect(screen.getByText("3 items")).toBeInTheDocument()
 
-    expect(screen.getByText("$150")).toBeInTheDocument()
+    expect(screen.getByText("$150.00")).toBeInTheDocument()
 
     expect(screen.getByText("$120")).toBeInTheDocument()
   })
@@ -19,7 +19,7 @@ describe("CartSummary component", () => {
 
     expect(screen.getByText("1 item")).toBeInTheDocument()
 
-    expect(screen.getByText("$50")).toBeInTheDocument()
+    expect(screen.getByText("$50.00")).toBeInTheDocument()
 
     expect(screen.getByText("$45")).toBeInTheDocument()
   })

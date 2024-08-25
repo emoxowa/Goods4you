@@ -36,8 +36,11 @@ export const useProductSearch = ({
 
   const handleQueryChange = useCallback((newQuery: string) => {
     setQuery(newQuery)
-    setSkip(0)
-    setProducts([])
+
+    if (newQuery === "") {
+      setSkip(0)
+      setProducts([])
+    }
   }, [])
 
   const handleShowMore = useCallback(() => {

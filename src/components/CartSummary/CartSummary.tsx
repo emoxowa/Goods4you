@@ -21,7 +21,7 @@ export const CartSummary = memo(
 
         <div className={styles.row}>
           <h4 className={styles.label}>Price without discount</h4>
-          <span className={styles.price}>${price}</span>
+          <span className={styles.price}>${price.toFixed(2)}</span>
         </div>
 
         <hr />

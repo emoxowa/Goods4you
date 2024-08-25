@@ -35,12 +35,11 @@ export const updateCart = createAsyncThunk(
               ? { id: product.id, quantity }
               : { id: product.id, quantity: product.quantity },
           )
-          .filter((product) => product.quantity > 0)
       : [...cart.products, { id: productId, quantity }]
 
     const response = await http.put<Cart>(`${API_PATHS.CARTS}/${cartId}`, {
       merge: false,
-      products: updatedProducts,
+      products: updatedProducts.filter((product) => product.quantity > 0),
     })
 
     return response
