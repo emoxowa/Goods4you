@@ -5,7 +5,7 @@
 ## 🔗 Links
 
 - Repository: [GitHub Repository](https://github.com/your-username/goods4you)
-- Deployment: [Goods4You Deployed Version](link_to_deployed_version)
+- Deployment: [Goods4You Deployed Version](https://goods4you.netlify.app/)
 - Figma Design: [Figma Prototype](https://www.figma.com/design/BLNEySPi8iaaN9EkkS5oC4/7_tasks_JS%2BReact?node-id=2520-399&t=I6u07PS6V4ZWQHSi-0)
 
 ## 🚀 Getting Started
