@@ -1,4 +1,4 @@
-import axios, { InternalAxiosRequestConfig } from "axios"
+import axios from "axios"
 
 import { BASE_API_URL, TOKENS } from "./constants"
 
@@ -11,9 +11,9 @@ export const apiInstance = axios.create({
 })
 
 apiInstance.interceptors.request.use(
-  (config: InternalAxiosRequestConfig) => {
+  (config) => {
     const accessToken = localStorage.getItem(TOKENS.ACCESS_TOKEN)
-    if (accessToken) {
+    if (accessToken && config.headers) {
       config.headers.Authorization = `Bearer ${accessToken}`
     }
     return config

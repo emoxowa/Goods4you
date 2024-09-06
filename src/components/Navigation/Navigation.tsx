@@ -8,7 +8,7 @@ import styles from "./Navigation.module.scss"
 type Props = {
   type: "header" | "footer"
   totalQuantity?: number
-  userName: string
+  userName?: string
 }
 
 export const Navigation = React.memo(

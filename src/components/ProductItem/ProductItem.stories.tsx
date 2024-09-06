@@ -37,8 +37,6 @@ const meta: Meta<typeof ProductItem> = {
       defaultValue: 0,
       description: "The quantity of the product in the cart",
     },
-    onAdd: { action: "added" },
-    onRemove: { action: "removed" },
   },
 }
 

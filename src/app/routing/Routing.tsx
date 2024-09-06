@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom"
-import { Layout } from "src/components/Layout"
+import { Layout } from "src/components/layout/Layout"
 import { AuthPage } from "src/pages/AuthPage"
 import { CartPage } from "src/pages/CartPage"
 import { CatalogPage } from "src/pages/CatalogPage"
