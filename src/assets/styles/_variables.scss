@@ -1,0 +1,41 @@
+//Colors
+// Primary Colors
+$primary-color: #F14F4F;
+$primary-hover-color: #8C2828;
+$primary-disabled-color: #F8AFAF;
+
+// Secondary Colors
+$secondary-color: #484283;
+
+// Background Colors
+$primary-bg-color: #FFFFFF;
+$secondary-bg-color: #444B58;
+$tertiary-bg-color: #F6F6F6;
+
+// Text Colors
+$primary-text-color: #444B58;
+$secondary-text-color: #FFFFFF;
+$secondary-hover-text-color: #C4C4C4;
+$tertiary-text-color: #B2B5BB;
+$gray-text-color: #646464;
+
+// Border Colors
+$border-color: #E5E5E5;
+
+// Font sizes
+$fs-xxs: 8px;   // Extra extra small
+$fs-xs: 14px;   // Extra small
+$fs-s: 16px;    // Small
+$fs-m: 18px;    // Medium
+$fs-l: 20px;    // Large
+$fs-xl: 24px;   // Extra large
+$fs-xxl: 30px;  // Double extra large
+$fs-xxxl: 36px; // Triple extra large
+
+// Breakpoints
+$breakpoint-xs-max: 320px;
+$breakpoint-s-max: 424px;
+$breakpoint-sm-max: 767px;
+$breakpoint-md-max: 1023px;
+$breakpoint-lg-max: 1439px;
+$breakpoint-xl-max: 1999px;

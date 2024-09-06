@@ -1,0 +1,37 @@
+
+.controls {
+  display: flex;
+  align-items: center;
+  flex-shrink: 1;
+  margin-left: auto;
+  justify-content: flex-end;
+
+  &.small {
+    gap: 20px;
+  }
+
+  &.medium {
+    gap: 30px;
+  }
+}
+
+.quantity {
+  font-size: $fs-xs;
+  color: $primary-text-color;
+  white-space: nowrap;
+  text-align: center;
+
+  &.small {
+    width: 48px;
+  }
+
+  &.medium {
+    width: 54px;
+  }
+}
+
+@include respond-to-md-max {
+  .controls {
+    margin-left: 0;
+  }
+}

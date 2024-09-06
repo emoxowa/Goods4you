@@ -1,0 +1,67 @@
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 40px;
+  align-items: center;
+  font-weight: 600;
+  color: $secondary-text-color;
+  font-size: $fs-xs;
+}
+
+.navLink {
+  font-weight: 600;
+  text-decoration: none;
+  color: $secondary-text-color;
+  font-size: $fs-xs;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  position: relative;
+
+  &:hover {
+    color: $secondary-hover-text-color;
+    text-decoration: underline;
+
+    .icon {
+      filter: brightness(0) saturate(100%) invert(84%) sepia(33%) saturate(0%)
+        hue-rotate(182deg) brightness(90%) contrast(85%);
+    }
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.totalQuantity {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: $primary-color;
+  color: $secondary-text-color;
+  font-size: $fs-xxs;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  margin: 0;
+  padding: 0;
+  line-height: $fs-xxs;
+}
+
+@include respond-to-s-max {
+  .links {
+    gap: 20px;
+  }
+}

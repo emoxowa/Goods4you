@@ -1,0 +1,36 @@
+.catalog {
+  background-color: $primary-bg-color;
+}
+
+.wrapper {
+  max-width: 1440px;
+  padding: 48px 130px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  button {
+    align-self: center;
+  }
+}
+
+.h2 {
+  font-size: $fs-xxxl;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.55;
+  color: $primary-text-color;
+}
+
+@include respond-to-lg-max {
+  .wrapper {
+    padding: 48px 30px;
+  }
+}
+
+@include respond-to-lg-max {
+  .wrapper {
+    padding: 48px 10px;
+  }
+}

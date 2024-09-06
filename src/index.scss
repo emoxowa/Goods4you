@@ -1,0 +1,13 @@
+@import './assets/styles/normolize';
+@import './assets/styles/variables';
+@import './assets/styles/mixins';
+@import './assets/styles/fonts';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  margin: 0;
+}

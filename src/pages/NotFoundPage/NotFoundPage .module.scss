@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  background-color: $secondary-color;
+  padding: 20px;
+}
+
+.title {
+  font-size: 100px;
+  font-weight: 700;
+  color: $secondary-text-color;
+  margin: 0;
+}
+
+.message {
+  font-size: 24px;
+  font-weight: 400;
+  color: $secondary-text-color;
+  margin: 20px 0;
+}
+
+.button {
+  color: $secondary-text-color;
+  border: 1px solid $secondary-text-color;
+  padding: 20px;
+
+  &:hover {
+    color: $primary-color;
+    border: 1px solid $primary-color;
+  }
+}

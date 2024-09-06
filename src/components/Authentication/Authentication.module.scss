@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  background-color: $primary-bg-color;
+  padding-top: 48px;
+}
+
+.title {
+  font-size: $fs-xxxl;
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: center;
+  margin: 92px 0 48px;
+}
+
+.form {
+  background-color: $primary-bg-color;
+  padding: 60px;
+  border-radius: 4px;
+  border: 1px solid $secondary-hover-text-color;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 600px;
+  align-items: center;
+}
+
+.button {
+  width: 177.6px;
+}
+
+@include respond-to-sm-max {
+  .form {
+    width: 400px;
+    padding: 60px 20px;
+  }
+}
+
+@include respond-to-s-max {
+  .form {
+    width: 300px;
+    padding: 60px 10px;
+  }
+}
