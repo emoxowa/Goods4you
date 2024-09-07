@@ -3,9 +3,8 @@ import path from "path"
 import { defineConfig } from "vite"
 import svgr from "vite-plugin-svgr"
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(() => {
   return {
-    base: mode === "production" ? "/Goods4you/" : "/",
     plugins: [react(), svgr()],
     resolve: {
       alias: {
