@@ -5,6 +5,7 @@ import svgr from "vite-plugin-svgr"
 
 export default defineConfig(() => {
   return {
+    base: "/Goods4you/",
     plugins: [react(), svgr()],
     resolve: {
       alias: {

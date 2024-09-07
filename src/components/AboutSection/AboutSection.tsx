@@ -24,7 +24,7 @@ export const AboutSection = (): JSX.Element => {
 
         <LinkButton
           text="Go to shopping"
-          to="/#catalog"
+          to="/Goods4you/#catalog"
           onClick={() => scrollToSection("catalog")}
         />
       </div>

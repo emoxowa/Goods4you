@@ -31,7 +31,7 @@ export const ProductItem = ({
   const isAddButtonDisabled = quantity >= product.stock
 
   return (
-    <Link to={`/product/${id}`} className={styles.productItem}>
+    <Link to={`/Goods4you/product/${id}`} className={styles.productItem}>
       <div className={styles.imageWrapper}>
         <img src={thumbnail} alt={title} className={styles.image} />
       </div>

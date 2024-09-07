@@ -20,7 +20,7 @@ export const Navigation = React.memo(
         <ul className={styles.links}>
           <li>
             <Link
-              to="/#catalog"
+              to="/Goods4you/#catalog"
               className={styles.navLink}
               onClick={() => handleNavigation("catalog")}
             >
@@ -29,7 +29,7 @@ export const Navigation = React.memo(
           </li>
           <li className={styles.link}>
             <Link
-              to="/#faq"
+              to="/Goods4you/#faq"
               className={styles.navLink}
               onClick={() => handleNavigation("faq")}
             >

@@ -9,7 +9,7 @@ export const NotFoundPage = (): JSX.Element => {
       <p className={styles.message}>
         Oops! The page you are looking for does not exist.
       </p>
-      <Link to="/" className={styles.button}>
+      <Link to="/Goods4you/" className={styles.button}>
         Go to Homepage
       </Link>
     </main>

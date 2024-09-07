@@ -35,7 +35,7 @@ export const CartItem = memo(
           <img src={thumbnail} alt={title} className={styles.image} />
 
           <div className={styles.wrapper}>
-            <Link to={`/product/${id}`}>
+            <Link to={`/Goods4you/product/${id}`}>
               <h3 className={styles.title}>{title}</h3>
             </Link>
             <p className={styles.price}>${price}</p>
@@ -64,7 +64,7 @@ export const CartItem = memo(
         ) : (
           <ButtonAddToCart
             className={styles.addToCartButton}
-              onClick={(e) => {
+            onClick={(e) => {
               e.preventDefault()
               e.stopPropagation()
               onAdd()
